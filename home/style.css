@@ -11,7 +11,7 @@ html {
 
 :root{
   --bg-color: #ffffff;
-  --second-bg-color: #f9fbfc;
+  --second-bg-color: #f9f8f8;
   --text-color: #000000;
   --violet: #9B87F5;
   --blue: #07145f;
@@ -261,6 +261,13 @@ nav .nav-right ul {
   flex-direction: column;
 }
 
+.section4 h1{
+  font-size: 3rem;
+  margin: 2rem 0;
+  color: var(--text-color);
+  
+}
+
 .section4-sub {
   display: flex;
   gap: 5rem;
@@ -271,7 +278,6 @@ nav .nav-right ul {
   padding: 3rem;
   border-radius: 15px;
   width: 50%;
-  /* height: 50vh; */
 }
 
 .section4-subsec h3{
@@ -302,7 +308,8 @@ nav .nav-right ul {
 }
 
 .roadmaps{
-  height: 50%;
+  margin: 2rem 0;
+  height: 6rem;
 }
 
 .roadmaps p:nth-child(1){
@@ -316,6 +323,11 @@ nav .nav-right ul {
   font-size: 15px;
 }
 
-
+.section4-img {
+ background-color: var(--bg-color);
+ border-radius: 30px;
+ display: flex;
+ justify-content: center;
+}
 
 
