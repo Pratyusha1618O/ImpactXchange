@@ -23,6 +23,8 @@ html {
   --white: #fff;
   --red: #ea384c;
   --magenta: #ff2d6c;
+  --shadow: #acacac;
+  --hover-shadow: #c9c9c9;
 }
 
 
@@ -230,7 +232,7 @@ nav .nav-right ul {
   width: 30%;
   height: 13rem;
   text-align: center;
-  box-shadow: 2px 1px 5px #acacac;
+  box-shadow: 2px 1px 5px var(--shadow);
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -240,7 +242,7 @@ nav .nav-right ul {
 }
 
 .section3 .section3-sub:hover{
-  box-shadow: 2px 5px 8px #c9c9c9;
+  box-shadow: 2px 5px 8px var(--hover-shadow);
 }
 
 .section3 .section3-sub p {
@@ -331,3 +333,54 @@ nav .nav-right ul {
 }
 
 
+/* SECTION 5 || FEATURED DONATION CATEGORIES */
+
+.section5{
+  background-color: var(--second-bg-color);
+  margin-top: 5rem;
+}
+
+/* heading */
+.section5 h1{
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 5rem;
+}
+
+/* category container */
+.section5-categories{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+/* category boxes */
+.categories-box{
+  text-align: center;
+  background-color: var(--bg-color);
+  box-shadow: 1px 2px 3px var(--shadow);
+  height: 18vh;
+  width: 14vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: 0.1s ease;
+}
+
+.categories-box:hover{
+  box-shadow: 2px 3px 5px var(--hover-shadow);
+}
+
+/* donation count */
+.donation-count{
+  text-align: center;
+  color: var(--violet);
+  font-weight: 500;
+  font-size: 20px;
+  padding-bottom: 3rem;
+}
