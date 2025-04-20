@@ -163,9 +163,9 @@ nav .nav-right ul {
 
         <div class="nav-right">
             <ul>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php#">Home</a></li>
                 <li><a href="#">About</a></li>
-                <li><a href="#">How It Works</a></li>
+                <li><a href="index.php#roadmap">How It Works</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="login.php">SignUp/Login</a></li>
                 <li id="browseBtn">Browse Our Services <i class="fa-solid fa-sliders"></i></li>

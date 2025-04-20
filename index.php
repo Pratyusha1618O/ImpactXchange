@@ -43,7 +43,7 @@
         <div class="urgent-notice">
             <p>
                 <i class="fa-solid fa-triangle-exclamation" style="color: rgb(255, 203, 71);"></i>
-                Urgent Help needed: Disaster relief for super cyclone Amphan.
+                Urgent Help needed: Disaster relief for super cyclone in Sundarban.
             </p>
             <button id="btn-learn-how-to-help">Learn How to Help</button>
         </div>
@@ -144,7 +144,7 @@
     </div>
 
     <!-- SECTION 5 || FEATURED DONATION CATEGORIES -->
-    <div class="section5">
+    <div class="section5" >
         <h1>Featured Donation Categories</h1>
         <div class="section5-categories">
             <div class="categories-box">

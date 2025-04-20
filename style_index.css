@@ -71,7 +71,7 @@ html {
 
 /* SECTION 2 || URGENT NOTICE */
 .section2 {
-  background-color: var(--red);
+  background-color: var(--violet);
   color: var(--white);
   padding: 1.2rem 3rem;
 }
