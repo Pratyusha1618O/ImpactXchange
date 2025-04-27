@@ -164,9 +164,9 @@ nav .nav-right ul {
         <div class="nav-right">
             <ul>
                 <li><a href="index.php#">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="about.php#">About</a></li>
                 <li><a href="index.php#roadmap">How It Works</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="contact.php#">Contact</a></li>
                 <li><a href="login.php">SignUp/Login</a></li>
                 <li id="browseBtn">Browse Our Services <i class="fa-solid fa-sliders"></i></li>
             </ul>
@@ -180,7 +180,7 @@ nav .nav-right ul {
                 <li><a href="#">Sell/Donate</a></li>
                 <li><a href="ngoRegistration.php">NGO Collaboration</a></li>
                 <li><a href="#">Disaster Relief</a></li>
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="admin-dashboard#">Admin Dashboard</a></li>
                 <li><img src="./assets/love.png" alt="img" width="150"></li>
             </ul>
     

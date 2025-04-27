@@ -107,25 +107,25 @@ html {
        
             </div>
             <div class="footer-subsec footer-links">
-                <h3>About</h3>
-                <a href=""><p>Our Mission</p></a>
-                <a href=""><p>Our Team</p></a>
-                <a href=""><p>Impact Reports</p></a>
-                <a href=""><p>Partner NGOs</p></a>       
+                <a href="about.php#"><h3>About</h3></a>
+                <a href="about.php#"><p>Our Mission</p></a>
+                <a href="about.php#"><p>Our Team</p></a>
+                <a href="about.php#"><p>Impact Reports</p></a>
+                <a href="about.php#"><p>Partner NGOs</p></a>       
             </div>
             <div class="footer-subsec footer-links">
-                <h3>Resources</h3>
-                <a href=""><p>Donor Guide</p></a>
-                <a href=""><p>NGO Resources</p></a>
-                <a href=""><p>Blog</p></a>
-                <a href=""><p>FAQs</p></a>  
+                <a href="resources.php#"><h3>Resources</h3></a>
+                <a href="resources.php#"><p>Donor Guide</p></a>
+                <a href="resources.php#"><p>NGO Resources</p></a>
+                <a href="resources.php#"><p>Blog</p></a>
+                <a href="resources.php#"><p>FAQs</p></a>  
                 
             </div>
             <div class="footer-subsec footer-links">
-                <h3>Contact</h3>
-                <a href=""><p>Contact Us</p></a>
-                <a href=""> <p>Support</p></a>
-                <a href=""><p>info@impactxchange.org</p></a>  
+                <a href="contact.php#"><h3>Contact</h3></a>
+                <a href="contact.php#"><p>Contact Us</p></a>
+                <a href="contact.php#"> <p>Support</p></a>
+                <a href="contact.php#"><p>info@impactxchange.org</p></a>  
             </div>
         </div>
 
@@ -136,8 +136,8 @@ html {
             <p>© 2025 ImpactXchange. All rights reserved.</p>
 
             <div class="copyright-links">
-                <a href="">Privacy Policy</a>
-                <a href="">Terms of Service</a>
+                <a href="privacy_policy.php#">Privacy Policy</a>
+                <a href="terms_and_conditions.php#">Terms of Service</a>
             </div>
         </div>
         
