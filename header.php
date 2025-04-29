@@ -1,5 +1,5 @@
 <?php
-
+  include("./server/config.php");
 ?>
 
 <html>
@@ -155,8 +155,9 @@ nav .nav-right ul {
 <body>
     <!-- Navbar -->
     <nav class="header">
-        <div class="nav-left">
-            <p>Impact<span style="color: #ff2d6c;">Xchange</span></p>
+        <div class="nav-left"><a href="index.php" style="text-decoration: none">
+          <p style="color: #07145f">Impact<span style="color: #ff2d6c;">Xchange</span></p>
+        </a>
         </div>
 
         <i class="fa-solid fa-bars" id="menu-bar"></i>
@@ -167,7 +168,7 @@ nav .nav-right ul {
                 <li><a href="about.php#">About</a></li>
                 <li><a href="index.php#roadmap">How It Works</a></li>
                 <li><a href="contact.php#">Contact</a></li>
-                <li><a href="login.php">SignUp/Login</a></li>
+                <li><a href="user-login.php">SignUp/Login</a></li>
                 <li id="browseBtn">Browse Our Services <i class="fa-solid fa-sliders"></i></li>
             </ul>
         </div>
@@ -180,7 +181,7 @@ nav .nav-right ul {
                 <li><a href="#">Sell/Donate</a></li>
                 <li><a href="ngoRegistration.php">NGO Collaboration</a></li>
                 <li><a href="#">Disaster Relief</a></li>
-                <li><a href="admin-dashboard#">Admin Dashboard</a></li>
+                <li><a href="admin-login.php">Admin Dashboard</a></li>
                 <li><img src="./assets/love.png" alt="img" width="150"></li>
             </ul>
     

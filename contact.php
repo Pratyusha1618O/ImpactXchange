@@ -1,5 +1,17 @@
 <?php
- include("header.php");
+    session_start();
+    include("./server/config.php");
+
+    if(isset($_SESSION['email'])){
+        include("user_logged_in_nav.php");
+    }
+    else if(isset($_SESSION["ngo-email"])){
+        include("ngo_loggedin_nav.php");    
+    }
+    else{
+        include("header.php");
+    }
+   
 ?>
 
 <!DOCTYPE html>

@@ -1,5 +1,17 @@
 <?php
- include("header.php");
+ session_start();
+ include("./server/config.php");
+
+ if(isset($_SESSION['email'])){
+     include("user_logged_in_nav.php");
+ }
+ else if(isset($_SESSION["ngo-email"])){
+    include("ngo_loggedin_nav.php");    
+ }
+ else{
+     include("header.php");
+ }
+
 ?>
 
 <!DOCTYPE html>
@@ -190,7 +202,7 @@
             <p>Join thousands of donors and NGOs already connecting resources <br> with those who need them most.</p>
             <div class="sec6-btns">
                 <button>Join As Donor</button>
-                <button>Register Your NGO</button>
+                <button onclick="window.location.href='ngoRegistration.php'">Register Your NGO</button>
             </div>          
         </div>
     </div>
