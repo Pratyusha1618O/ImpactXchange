@@ -35,12 +35,14 @@
             padding: 0;
             background-color: #eef2f7;
             color: #333;
+            margin-top: 4rem;
         }
         .dashboard {
             display: flex;
             min-height: 100vh;
         }
         .sidebar {
+            margin-top: 3rem;
             width: 250px;
             background-color: #2c3e50;
             color: #ecf0f1;

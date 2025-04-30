@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: poppins;
+        }
+
+        .container{
+            margin-top: 4.5rem;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-top">
+            <h1>Welcome Donor</h1>
+            <div class="top-text">
+                <p>Your generosity can make a real difference. Whether you're giving away gently used items or offering essentials for a fair price, your contribution helps someone in need. Please choose whether you'd like to donate your item for free or sell it at a minimal cost—every act of kindness counts.</p>
+            </div>
+        </div>
+
+        <div class="container-form">
+            <h2 class="form-head">Donate your product</h2>
+            <form id="donate-from" method="POST">
+                <div class="form-group">
+                    <label for="category">Product Category</label>
+                    <select name="category" id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="clothes">Clothes</option>
+                        <option value="books">Books</option>
+                        <option value="health">Health</option>
+                        <option value="food">Food</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="furniture">Furniture</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" name="product-name">
+                </div>
+                <div class="form-group"></div>
+                <div class="form-group"></div>
+                <div class="form-group"></div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

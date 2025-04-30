@@ -23,7 +23,7 @@
             else{
                 //password and confirm password matching
                 if($password != $confirm_password){
-                    echo '<p style="display: block" name="password-match">Password not matched</p>';
+                    $errorMsg = "Password mismatch!!";
                 }
                 else{
                     //fetching data from user table. If an user already exists they should not reg again
