@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("header.php");
+    include("admin_loggedin_nav.php");
     include("./server/config.php");
 
     if(!isset($_SESSION["admin-email"])){
@@ -201,7 +201,7 @@
             <li><a href="#"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
             <li><a href="#"><i class="fas fa-chart-line"></i> Reports</a></li>
             <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
-            <li><a href="admin-logout.php"><i class="fa-solid fa-power-off"></i></i> Log out</a></li>
+            <li><a href="admin-logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
         </ul>
     </div>
         <div class="main-content">
