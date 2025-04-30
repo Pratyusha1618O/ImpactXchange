@@ -8,6 +8,9 @@
  else if(isset($_SESSION["ngo-email"])){
     include("ngo_loggedin_nav.php");    
 }
+else if(isset($_SESSION["admin-email"])){
+    include("admin_loggedin_nav.php");    
+}
  else{
      include("header.php");
  }
@@ -22,38 +25,18 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/63ce28b4a6.js" crossorigin="anonymous"></script>
-    <title>About Us - ImpactXchange</title>
+    
     <link rel="stylesheet" href="./style_index.css">
     <link rel="stylesheet" href="./responsive.css">
     <style>
         body {
+            
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             color: #333;
         }
 
-        /* .hero-section {
-            background: url('./assets/hero_about.jpg') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            color: #fff;
-            text-align: center;
-        } */
-
-        /* .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        } */
 
         .hero-section h1 {
             font-size: 3rem;
@@ -68,6 +51,7 @@
         }
 
         .about-section {
+            margin-top: 4rem;
             padding: 50px 20px;
             text-align: center;
         }
@@ -181,12 +165,12 @@
 
 <body>
     <!-- HERO SECTION -->
-    <div class="hero-section">
+    <!-- <div class="hero-section">
         <div>
             <h1>About ImpactXchange</h1>
-            <!-- <p>Connecting resources with those who need them most.</p> -->
+            <p>Connecting resources with those who need them most.</p>
         </div>
-    </div>
+    </div> -->
 
     <!-- ABOUT SECTION -->
     <div class="about-section">
@@ -215,9 +199,9 @@
                     <li>Support for remote and underserved communities.</li>
                 </ul>
             </div>
-            <div class="about-image">
+            <!-- <div class="about-image">
                 <img src="./assets/about_us.jpg" alt="About Us">
-            </div>
+            </div> -->
         </div>
     </div>
 

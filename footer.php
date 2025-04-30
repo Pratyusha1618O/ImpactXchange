@@ -123,7 +123,7 @@ html {
                 <a href="contact.php#"><h3>Contact</h3></a>
                 <a href="contact.php#"><p>Contact Us</p></a>
                 <a href="contact.php#"> <p>Support</p></a>
-                <a href="contact.php#"><p>info@impactxchange.org</p></a>  
+                <a href="contact.php#"><p>info@impactxchange.com</p></a>  
             </div>
         </div>
 
