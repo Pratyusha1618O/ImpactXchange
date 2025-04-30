@@ -12,7 +12,8 @@
         $check_query = mysqli_query($dbcon, $checkSQL);
 
         if($check_query->num_rows > 0) {
-            $errorMsg = "Already logged in";
+            header("Location: ngo-dashboard.php");
+            // $errorMsg = "Already logged in";
         }
         else {
             //fetching data from ngo table
@@ -46,6 +47,9 @@
 <?php 
     if(isset($_SESSION['email'])){
         include("user_logged_in_nav.php");
+    }
+    else if(isset($_SESSION["admin-email"])){
+        include("admin_loggedin_nav.php");    
     }
     else{
         include("header.php");
