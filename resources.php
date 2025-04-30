@@ -8,6 +8,9 @@
  else if(isset($_SESSION["ngo-email"])){
     include("ngo_loggedin_nav.php");    
 }
+else if(isset($_SESSION["admin-email"])){
+    include("admin_loggedin_nav.php");    
+}
  else{
      include("header.php");
  }
