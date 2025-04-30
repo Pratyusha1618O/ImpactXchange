@@ -11,7 +11,8 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
     $check_query = mysqli_query($dbcon, $checkSQL);
 
     if($check_query->num_rows > 0) {
-        $errorMsg = "Already logged in";
+        // $errorMsg = "Already logged in";
+        header("Location: admin-dashboard.php");
     }
     else {
         //fetching data from admin table
