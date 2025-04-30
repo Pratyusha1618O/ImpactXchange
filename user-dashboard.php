@@ -18,7 +18,6 @@ if($result->num_rows > 0)
 
 ?>
 
-<!-- <h1>Welcome: <?php //echo $_SESSION['email']; ?></h1> -->
 
 <html lang="en">
 
@@ -147,16 +146,17 @@ if($result->num_rows > 0)
         <aside class="sidebar">
             <h2><i class="fas fa-user-circle"></i>Dashboard</h2>
             <ul class="sidebar-links">
-                <li><a href="#personal-details"><i class="fas fa-user"></i> Personal Details</a></li>
-                <li><a href="#manage-listings"><i class="fas fa-list"></i> Manage Listings</a></li>
+                <li><a href="#personal-details"><i class="fas fa-user"></i>
+                        <?php echo "{$row['user_name']}"?>
+                    </a>
+                </li>
                 <li><a href="#donation-history"><i class="fas fa-hand-holding-usd"></i> Donation & Purchase History</a>
                 </li>
                 <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Saved Items</a></li>
-                <li><a href="#messages"><i class="fas fa-envelope"></i> Messages & Notifications</a></li>
                 <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
                 <li><a href="#settings"><i class="fas fa-cog"></i> Settings & Security</a></li>
                 <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
-                <li><a href="user-logout.php">Logout</a></li>
+                <li><a href="user-logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
             </ul>
         </aside>
 
@@ -181,12 +181,6 @@ if($result->num_rows > 0)
                 </p>
             </div>
 
-            <div class="card" id="manage-listings">
-                <h3>Manage Listings</h3>
-                <p>View, edit, or delete your uploaded products.</p>
-                <button class="btn">View Listings</button>
-            </div>
-
             <div class="card" id="donation-history">
                 <h3>Donation & Purchase History</h3>
                 <p>Track your past donations and purchases.</p>
@@ -197,12 +191,6 @@ if($result->num_rows > 0)
                 <h3>Saved Items</h3>
                 <p>View your wishlist or bookmarked products.</p>
                 <button class="btn">View Saved Items</button>
-            </div>
-
-            <div class="card" id="messages">
-                <h3>Messages & Notifications</h3>
-                <p>Chat with buyers, sellers, and NGOs.</p>
-                <button class="btn">View Messages</button>
             </div>
 
             <div class="card" id="volunteer-status">
