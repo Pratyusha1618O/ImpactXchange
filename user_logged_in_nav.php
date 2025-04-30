@@ -172,6 +172,7 @@
 <body>
   <!-- Navbar -->
   <nav class="header">
+    
     <div class="nav-left">
       <p>Impact<span style="color: #ff2d6c;">Xchange</span></p>
     </div>
