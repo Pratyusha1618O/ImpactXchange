@@ -37,6 +37,8 @@
             color: #333;
             margin-top: 4rem;
         }
+
+
         .dashboard {
             display: flex;
             min-height: 100vh;
@@ -186,19 +188,27 @@
             font-size: 1.5em;
             color: #2c3e50;
         }
+
+        .card:target {
+            /* border: 2px solid #f9f8f8; */
+            background: ;
+            /* box-shadow: 0 0 15px   #fff674; */
+            background: linear-gradient(-45deg , #fff237, #f9f8f8);
+        }
+
     </style>
 </head>
 <body>
     <div class="sidebar">
-        <h2><i class="fas fa-donate"></i> Welcome Admin</h2>
+        <h2><i class="fas fa-donate"></i> Welcome <?php echo "{$row['admin_name']}"?></h2>
         <ul>
-            <li><a href="#"><i class="fa-solid fa-user"></i>
-                    <?php echo "{$row['admin_name']}"?>
+            <!-- <li><a href="#"><i class="fa-solid fa-user"></i>
+                    <?php //echo "{$row['admin_name']}"?>
                 </a>
-            </li>
-            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
-            <li><a href="#"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
+            </li> -->
+            <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
+            <li><a href="#campaign"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
             <li><a href="#"><i class="fas fa-chart-line"></i> Reports</a></li>
             <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
             <li><a href="admin-logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
@@ -212,17 +222,25 @@
                 </button>
             </div>
             <div class="summary">
-                <div class="card">
+                <div class="card" id="donation">
                     <h3>Total Donations</h3>
-                    <p>Rs: 300</p>
+                    <?php
+                        $sqlTotal = "SELECT COUNT(DISTINCT product_id) AS total FROM product;";
+                        $resultTotal = mysqli_query($dbcon, $sqlTotal);
+                        $row = mysqli_fetch_assoc($resultTotal);
+                        $total = $row['total'];
+
+                    ?>
+                    <p><?php echo $total; ?></p>
+                    <!-- <p>Rs: 300<p> -->
                 </div>
-                <div class="card">
+                <div class="card" id="campaign">
                     <h3>Active Campaigns</h3>
-                    <p>8</p>
+                    <p>10</p>
                 </div>
                 <div class="card">
                     <h3>Donors</h3>
-                    <p>10</p>
+                    <p>25</p>
                 </div>
             </div>
             <div class="chart-container">

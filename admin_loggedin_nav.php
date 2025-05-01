@@ -198,7 +198,7 @@ nav .nav-right ul {
                 <li><a href="#">View Products</a></li>
                 <li><a href="#">Sell/Donate</a></li>
                 <li><a href="ngoRegistration.php">NGO Collaboration</a></li>
-                <li><a href="#">Disaster Relief</a></li>
+                <li><a href="disaster.php">Disaster Relief</a></li>
                 <li><a href="admin-dashboard.php">
                     <?php echo "Admin: {$row['admin_name']}" ?>
                 </a></li>
