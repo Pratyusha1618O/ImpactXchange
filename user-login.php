@@ -11,8 +11,8 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
     $check_query = mysqli_query($dbcon, $checkSQL);
 
     if($check_query->num_rows > 0) {
-        // $errorMsg = "Already logged in";
-        header("Location: user-dashboard.php");
+        $errorMsg = "Already logged in";
+        // header("Location: user-dashboard.php");
     }
     else {
         //fetching data from user table
@@ -34,7 +34,7 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
                 exit();
             }
         } else {
-            $errorMsg = "No record found";
+            $errorMsg = "Incorrect email or password!!";
         }
     }
     

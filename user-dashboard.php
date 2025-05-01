@@ -3,7 +3,7 @@
 include("user_logged_in_nav.php");
 include("./server/config.php");
 
-if(!isset($_SESSION["email"])){
+if(!isset($_SESSION['email'])){
     header("Location: login.php");
     exit();
 }
@@ -23,7 +23,6 @@ if($result->num_rows > 0)
 
 <head>
     <meta charset="UTF-8">
-    <title>User Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -32,6 +31,13 @@ if($result->num_rows > 0)
             padding: 0;
             background-color: #f5f7fb;
             color: #333;
+        }
+
+        .card:target {
+            /* border: 2px solid #f9f8f8; */
+            background: ;
+            /* box-shadow: 0 0 15px   #fff674; */
+            background: linear-gradient(-45deg , #fff237, #f9f8f8);
         }
 
         .dashboard-container {
@@ -124,7 +130,7 @@ if($result->num_rows > 0)
         }
 
         .btn {
-            background-color: #3498db;
+            background-color:rgb(99, 182, 255);
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -132,10 +138,16 @@ if($result->num_rows > 0)
             cursor: pointer;
             font-size: 1em;
             transition: background-color 0.3s ease;
+            
+        }
+
+        .btn a{
+            text-decoration: none;
+            color: white;
         }
 
         .btn:hover {
-            background-color: #2980b9;
+            background: rgb(128, 53, 212);
         }
     </style>
 </head>
@@ -144,9 +156,9 @@ if($result->num_rows > 0)
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <h2><i class="fas fa-user-circle"></i>Dashboard</h2>
+            <h2>Dashboard</h2>
             <ul class="sidebar-links">
-                <li><a href="#personal-details"><i class="fas fa-user"></i>
+                <li><a href="#personal-details"><i class="fas fa-user-circle"></i> 
                         <?php echo "{$row['user_name']}"?>
                     </a>
                 </li>
@@ -184,19 +196,19 @@ if($result->num_rows > 0)
             <div class="card" id="donation-history">
                 <h3>Donation & Purchase History</h3>
                 <p>Track your past donations and purchases.</p>
-                <button class="btn">View History</button>
+                <button class="btn"><a href="userDashboard-donation-history.php">View History</a> </button>
             </div>
 
             <div class="card" id="saved-items">
                 <h3>Saved Items</h3>
                 <p>View your wishlist or bookmarked products.</p>
-                <button class="btn">View Saved Items</button>
+                <button class="btn"><a href="userDashboard-saved-items.php">View Saved Items</a></button>
             </div>
 
             <div class="card" id="volunteer-status">
                 <h3>Volunteer Status</h3>
                 <p>Track your disaster relief or NGO participation.</p>
-                <button class="btn">View Status</button>
+                <button class="btn"><a href="userDashboard-volunteer-status.php">View Status</a></button>
             </div>
 
             <div class="card" id="settings">

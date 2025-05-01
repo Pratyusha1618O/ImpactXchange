@@ -199,7 +199,7 @@
                 </div>
                 <div class="form-group">
                     <label for="contact">Contact Number</label>
-                    <input type="text" id="contact" name="contact" pattern="^\d{10}$" placeholder="Enter contact (min 10 digit)" required>
+                    <input type="text" id="contact" name="contact" pattern="^[0-9()\-\s]{10,15}$" placeholder="Enter contact (min 10 digit)" required>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
