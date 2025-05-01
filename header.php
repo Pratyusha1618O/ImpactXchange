@@ -181,7 +181,7 @@ nav .nav-right ul {
                 <li><a href="#">View Products</a></li>
                 <li><a href="#">Sell/Donate</a></li>
                 <li><a href="ngoRegistration.php">NGO Collaboration</a></li>
-                <li><a href="#">Disaster Relief</a></li>
+                <li><a href="disaster.php">Disaster Relief</a></li>
                 <li><a href="admin-login.php">Admin Dashboard</a></li>
                 <li><img src="./assets/love.png" alt="img" width="150"></li>
             </ul>

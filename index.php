@@ -285,7 +285,7 @@ else {
         </div>
 
         <div class="donation-count">
-            <p>1000+ items donated this month</p>
+            <p><span id="donationNumber">0</span>+ items donated this month</p>
         </div>
     </div>
 
@@ -322,6 +322,32 @@ else {
     <!-- IMPORT FROM footer.php -->
 
 </body>
+
+<script>
+  function animateDonationCount(target, duration) {
+    const countEl = document.getElementById("donationNumber");
+    const start = 0;
+    const end = target;
+    const range = end - start;
+    const incrementTime = 10;
+    let current = start;
+    const step = Math.ceil((range * incrementTime) / duration);
+
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      countEl.textContent = current;
+    }, incrementTime);
+  }
+
+  // Start animation when page loads
+  window.onload = () => {
+    animateDonationCount(1000, 2000); 
+  };
+</script>
 
 </html>
 
