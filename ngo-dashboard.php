@@ -137,6 +137,18 @@
         .btn:hover {
             background-color: #2980b9;
         }
+
+        .btn a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .card:target {
+            /* border: 2px solid #f9f8f8; */
+            background: ;
+            /* box-shadow: 0 0 15px   #fff674; */
+            background: linear-gradient(-45deg , #fff237, #f9f8f8);
+        }
     </style>
 </head>
 
@@ -147,13 +159,13 @@
             <h2><i class="fas fa-user-circle"></i>NGO Dashboard</h2>
             <ul class="sidebar-links">
                 <li><a href="#personal-details"><i class="fas fa-user"></i>NGO Details</a></li>
-                <li><a href="#donation-history"><i class="fa-solid fa-pen-to-square"></i> Reports</a>
+                <!-- <li><a href="#donation-history"><i class="fa-solid fa-pen-to-square"></i> Reports</a> -->
                 </li>
                 <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Collected Items</a></li>
                 <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
                 <li><a href="#settings"><i class="fas fa-cog"></i> Settings & Security</a></li>
                 <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
-                <li><a href="user-logout.php">Logout</a></li>
+                <li><a href="ngo-logout.php">Logout</a></li>
             </ul>
         </aside>
 
@@ -178,28 +190,22 @@
                 </p>
             </div>
 
-            <div class="card" id="donation-history">
+            <!-- <div class="card" id="donation-history">
                 <h3>Reports</h3>
-                <p>Track your past donations and purchases.</p>
-                <button class="btn">View History</button>
-            </div>
+                <p>Track your past purchases.</p>
+                <button class="btn"><a href="ngoDashboard-reports.php">View History</a></button>
+            </div> -->
 
             <div class="card" id="saved-items">
                 <h3>Collected Items</h3>
                 <p>View your collected items</p>
-                <button class="btn">View collected Items</button>
+                <button class="btn"><a href="ngoDashboard-collected-items.php">View collected Items</a></button>
             </div>
-
-            <!-- <div class="card" id="messages">
-                <h3>Messages & Notifications</h3>
-                <p>Chat with buyers, sellers, and NGOs.</p>
-                <button class="btn">View Messages</button>
-            </div> -->
 
             <div class="card" id="volunteer-status">
                 <h3>Volunteer Status</h3>
                 <p>Track your disaster relief or NGO participation.</p>
-                <button class="btn">View Status</button>
+                <button class="btn"><a href="ngoDashboard-volunteer.php">View Status</a></button>
             </div>
 
             <div class="card" id="settings">
@@ -221,3 +227,4 @@
 </body>
 
 </html>
+
