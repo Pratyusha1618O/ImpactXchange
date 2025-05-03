@@ -1,20 +1,17 @@
 <?php
-    session_start();
-    include("./server/config.php");
+session_start();
+include("./server/config.php");
 
-    if(isset($_SESSION['email'])){
-        include("user_logged_in_nav.php");
-    }
-    else if(isset($_SESSION["ngo-email"])){
-        include("ngo_loggedin_nav.php");    
-    }
-    else if(isset($_SESSION["admin-email"])){
-        include("admin_loggedin_nav.php");    
-    }
-    else{
-        include("header.php");
-    }
-   
+if (isset($_SESSION['email'])) {
+    include("user_logged_in_nav.php");
+} else if (isset($_SESSION["ngo-email"])) {
+    include("ngo_loggedin_nav.php");
+} else if (isset($_SESSION["admin-email"])) {
+    include("admin_loggedin_nav.php");
+} else {
+    include("header.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +126,7 @@
 
         <!-- Contact Form -->
         <div class="contact-form">
-            <form action="submit_contact.php" method="POST">
+            <form action="https://formspree.io/f/mjkwygrn" method="POST">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
@@ -143,10 +140,13 @@
             </form>
         </div>
 
+
+
         <!-- Contact Information -->
         <div class="contact-info">
             <h3>Our Contact Details</h3>
-            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:support@impactxchange.com">support@impactxchange.com</a></p>
+            <p><i class="fas fa-envelope"></i> Email: <a
+                    href="mailto:support@impactxchange.com">support@impactxchange.com</a></p>
             <p><i class="fas fa-phone"></i> Phone: +1 (123) 456-7890</p>
             <p><i class="fas fa-map-marker-alt"></i> Address: 123 Impact Street, City, Country</p>
         </div>

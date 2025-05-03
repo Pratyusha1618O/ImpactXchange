@@ -285,7 +285,7 @@ else {
         </div>
 
         <div class="donation-count">
-            <p><span id="donationNumber">0</span>+ items donated this month</p>
+            <p><span id="donationNumber">500</span>+ items donated this month</p>
         </div>
     </div>
 
@@ -326,7 +326,7 @@ else {
 <script>
   function animateDonationCount(target, duration) {
     const countEl = document.getElementById("donationNumber");
-    const start = 0;
+    const start = 500;
     const end = target;
     const range = end - start;
     const incrementTime = 10;
