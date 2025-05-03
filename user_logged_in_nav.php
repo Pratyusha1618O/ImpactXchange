@@ -197,8 +197,8 @@
     <div class="off-screen-menu">
       <h2>Our Services<i class="fa-solid fa-handshake-angle"></i></h2>
       <ul>
-        <li><a href="#">View Products</a></li>
-        <li><a href="#">Sell/Donate</a></li>
+        <li><a href="view-product.php">View Products</a></li>
+        <li><a href="sell-donate.php">Sell/Donate</a></li>
         <li><a href="ngoRegistration.php">NGO Collaboration</a></li>
         <li><a href="#disaster.php">Disaster Relief</a></li>
         <li><a href="admin-dashboard#">Admin Dashboard</a></li>
