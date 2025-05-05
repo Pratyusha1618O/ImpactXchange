@@ -163,7 +163,7 @@
                 </li>
                 <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Collected Items</a></li>
                 <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
-                <li><a href="#settings"><i class="fas fa-cog"></i> Settings & Security</a></li>
+                <li><a href="settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
                 <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
                 <li><a href="ngo-logout.php">Logout</a></li>
             </ul>
