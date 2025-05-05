@@ -483,7 +483,7 @@ $result = mysqli_query($dbcon, $sql);
                                         <input type="hidden" name="product_id" value='product_id'>
                                         <button type="submit" name="add_to_cart" class="add-to-cart">Add to Cart</button>
                                     </form>
-                                    <button class="view-details">View Details</button>
+                                    <button class="view-details">Buy Now</button>
                                 </div>
                             </div>
                         HTML;

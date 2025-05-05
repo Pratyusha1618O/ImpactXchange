@@ -68,8 +68,9 @@ nav .nav-right ul li a {
 
 nav .nav-right ul li a:hover {
   /* filter: drop-shadow(0 0 10px); */
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease;
   color: var(--orange);
+
 }
 
 nav .nav-right ul {
