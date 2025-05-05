@@ -125,10 +125,12 @@
             <ul>
                 <li><a href="admin-dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="#"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
-                <li><a href="#"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
+                <li><a href=""><i class="fas fa-bullhorn"></i> Campaigns</a></li>
                 <li><a href="report.php"><i class="fas fa-chart-line"></i> Reports</a></li>
                 <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#"><i class="fas fa-users"></i>NGOs</a></li>
+                <li><a href="settings.php"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="admin-logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
             </ul>
         </div>
 

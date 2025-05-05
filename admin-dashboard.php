@@ -16,6 +16,10 @@
         $row = mysqli_fetch_assoc($result);
     }
 
+    $sql_product = "SELECT * FROM product JOIN user ON product.user_id = user.user_id";
+    $result_product = mysqli_query($dbcon, $sql_product);
+
+
 ?>
 
 
@@ -193,8 +197,10 @@
             /* border: 2px solid #f9f8f8; */
             background: ;
             /* box-shadow: 0 0 15px   #fff674; */
-            background: linear-gradient(-45deg , #fff237, #f9f8f8);
+            background: linear-gradient(-45deg ,hsl(65, 100.00%, 57.60%), #f9f8f8);
         }
+
+        
 
     </style>
 </head>
@@ -210,7 +216,9 @@
             <li><a href="#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
             <li><a href="#campaign"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
             <li><a href="adminDashboard-report.php"><i class="fas fa-chart-line"></i> Reports</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="adminDashboard-users.php"><i class="fas fa-users"></i>Users</a></li>
+            <li><a href="adminDashboard-ngos.php"><i class="fas fa-users"></i>NGOs</a></li>
+            <li><a href="settings.php"><i class="fas fa-cog"></i> Settings</a></li>
             <li><a href="admin-logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
         </ul>
     </div>
@@ -222,7 +230,7 @@
                 </button>
             </div>
             <div class="summary">
-                <div class="card" id="donation">
+                <div class="card" >
                     <h3>Total Donations</h3>
                     <?php
                         $sqlTotal = "SELECT COUNT(DISTINCT product_id) AS total FROM product;";
@@ -247,9 +255,40 @@
                 <h3>Donation Trends</h3>
                 <canvas id="donationChart"></canvas>
             </div>
-            <div class="card recent-donations">
-                <h3>Recent Donations</h3>
-                <table>
+            <div class="card recent-donations" id="donation">
+                <h3>View Donations</h3>
+                <?php
+                if ($result_product->num_rows > 0) {
+                    echo "
+                        <table>
+                        <tr>
+                            <th>Donor</th>
+                            <th>Product</th>
+                            <th>Date</th>
+                            <th>Price</th>
+                            
+                        </tr>";
+                    while ($row1 = $result_product->fetch_assoc()) {
+                        echo "
+                            <tr>
+                                <td>{$row1['user_name']}</td>
+                                <td>{$row1['product_name']}</td>
+                                <td>{$row1['donation_date']}</td>
+                                <td>{$row1['product_price']}</td> 
+                            </tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    $msg = "No Records";
+                }
+            ?>
+
+            <?php if (!empty($msg)) { ?>
+                <h2 style="color: Green; margin-top: 10px; text-align: center; ">
+                    <?php echo $msg; ?>
+                </h2>
+            <?php } ?>
+                <!-- <table>
                     <thead>
                         <tr>
                             <th>Donor</th>
@@ -278,7 +317,7 @@
                             <td><i class="fas fa-check-circle" style="color: green;"></i> Completed</td>
                         </tr>
                     </tbody>
-                </table>
+                </table> -->
             </div>
         </div>
     </div>
