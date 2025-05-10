@@ -4,19 +4,60 @@ include("./server/config.php");
 
 if (isset($_SESSION['email'])) {
     include("user_logged_in_nav.php");
-} else if (isset($_SESSION["ngo-email"])) {
+    $email = $_SESSION['email'];
+} elseif (isset($_SESSION["ngo-email"])) {
     include("ngo_loggedin_nav.php");
-} else if (isset($_SESSION["admin-email"])) {
+    $email = $_SESSION['ngo-email'];
+} elseif (isset($_SESSION["admin-email"])) {
     include("admin_loggedin_nav.php");
+    $email = $_SESSION['admin-email'];
 } else {
     include("header.php");
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    $product_name = $_POST['productName'];
+    $product_details = $_POST['productDetails'];
+    $product_price = $_POST['productCost'];
+    $product_type = $_POST['productCategory'];
+
+    $userID_sql = "SELECT user_id FROM user WHERE user_email = '$email'";
+    $userResult = mysqli_query($dbcon, $userID_sql);
+
+    if ($userRow = mysqli_fetch_assoc($userResult)) {
+        $user_id = $userRow['user_id'];
+
+        $filename = $_FILES['productImage']['name'];
+        $tempfile = $_FILES['productImage']['tmp_name'];
+        $folder = "product_images/" . basename($filename);
+
+        if (!empty($filename)) {
+            $today_date = date("Y-m-d");
+
+            $insert_sql = "INSERT INTO product (user_id, product_name, product_details, product_price, product_type, product_img, donation_date) 
+                           VALUES ('$user_id', '$product_name', '$product_details', '$product_price', '$product_type', '$filename', '$today_date')";
+            $result = mysqli_query($dbcon, $insert_sql);
+
+            if ($result) {
+                move_uploaded_file($tempfile, $folder);
+                echo "<script>alert('Product uploaded successfully!');</script>";
+            } else {
+                echo "<script>alert('Database Error: " . mysqli_error($dbcon) . "');</script>";
+            }
+        } else {
+            echo "<script>alert('Please upload an image.');</script>";
+        }
+    } else {
+        echo "<script>alert('User not found.');</script>";
+    }
+}
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -154,70 +195,52 @@ if (isset($_SESSION['email'])) {
 
 <body>
     <div class="container">
-        <!-- Left Section -->
         <div class="left-section">
             <h2>Welcome!</h2>
             <p>Want to donate or sell a product?</p>
-            <button onclick="window.location.href='viewProduct.html'">View Products</button>
+            <a href="product-list.php"><button>View Products</button></a>
         </div>
 
-        <!-- Right Section -->
-        <div class="right-section">
-            <h3>Sell/Donate Product</h3>
-            <form id="productForm">
+        <form method="POST" action="sell-donate.php" enctype="multipart/form-data">
+            <div class="right-section">
+                <h3>Sell/Donate Product</h3>
+
                 <div class="form-group">
                     <label for="productName">Product Name</label>
-                    <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+                    <input type="text" name="productName" placeholder="Enter product name" required>
                 </div>
+
                 <div class="form-group">
                     <label for="productDetails">Product Details</label>
-                    <textarea id="productDetails" name="productDetails" rows="4" placeholder="Enter product details"
-                        required></textarea>
+                    <textarea name="productDetails" rows="4" placeholder="Enter product details" required></textarea>
                 </div>
+
                 <div class="form-group">
                     <label for="productCost">Cost (if applicable)</label>
-                    <input type="number" id="productCost" name="productCost" placeholder="Enter cost (0 for donation)"
-                        required>
+                    <input type="number" name="productCost"  min="0" placeholder="Enter cost (0 for donation)" required>
                 </div>
+
                 <div class="form-group">
                     <label for="productCategory">Category</label>
-                    <select id="productCategory" name="productCategory" required>
+                    <select name="productCategory" required>
                         <option value="">Select a category</option>
                         <option value="electronics">Electronics</option>
                         <option value="furniture">Furniture</option>
                         <option value="clothes">Clothes</option>
-                        <option value="books">Books</option>
+                        <option value="education">Education</option>
                         <option value="health">Health & Hygiene</option>
                         <option value="food">Food</option>
                     </select>
                 </div>
+
                 <div class="upload-section">
-                    <label for="productImage">Upload Product Image</label>
-                    <input type="file" id="productImage" name="productImage" accept="image/*">
+                    <label for="productImage">Upload Image</label>
+                    <input type="file" name="productImage" accept="image/*" required>
                 </div>
-                <button type="submit" class="btn">Submit</button>
-            </form>
-        </div>
+
+                <button type="submit" class="btn" name="submit">Submit</button>
+            </div>
+        </form>
     </div>
-
-    <script>
-        const productForm = document.getElementById('productForm');
-
-        productForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const productName = document.getElementById('productName').value;
-            const productDetails = document.getElementById('productDetails').value;
-            const productCost = document.getElementById('productCost').value;
-            const productCategory = document.getElementById('productCategory').value;
-            const productImage = document.getElementById('productImage').files[0];
-
-            alert(`Product Submitted!\n\nName: ${productName}\nDetails: ${productDetails}\nCost: ${productCost}\nCategory: ${productCategory}\nImage: ${productImage ? productImage.name : 'No image uploaded'}`);
-            
-            // Reset the form after submission
-            productForm.reset();
-        });
-    </script>
 </body>
-
 </html>

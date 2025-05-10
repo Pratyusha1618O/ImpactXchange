@@ -21,23 +21,7 @@ else {
 $sql = "SELECT * FROM product";
 $result = mysqli_query($dbcon, $sql);
 
-// // if($result->num_rows > 0){
-// //     $row = mysqli_fetch_assoc($result);
-// // }
-// if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_to_cart"])) {
-//         $product_id = $_POST["product_id"];
-//         $sql1 = "SELECT * FROM user WHERE user_email = '$email' ";
-//         $result1 = mysqli_query($dbcon, $sql1);
 
-//         if($result1->num_rows > 0) {
-//             $row = mysqli_fetch_assoc($result1);    
-//         }
-
-//         $user_id = $row['user_id'];
-//         $insertCart = "INSERT INTO cart (product_id, user_id) VALUES ('$product_id', '$user_id')";
-//         mysqli_query($dbcon, $insertCart);
-
-// }
 
 
 ?>
@@ -342,6 +326,9 @@ $result = mysqli_query($dbcon, $sql);
             <option value="electronics">Electronics</option>
             <option value="furniture">Furniture</option>
             <option value="clothes">Clothes</option>
+            <option value="food">Food</option>
+            <option value="education">Education</option>
+            <option value="health">Health & Hygiene</option>
         </select>
     </div>
 
@@ -471,7 +458,7 @@ $result = mysqli_query($dbcon, $sql);
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo <<<HTML
                             <div class="product-card" data-category="{$row['product_type']}">
-                                <img src="uploads/{$row['product_img']}" alt="Product Image">
+                                <img src="./product_images/{$row['product_img']}" alt="Product Image">
                                 <h3>{$row['product_name']}</h3>
                                 <p>Price: ₹{$row['product_price']}</p>
                                 <p>Category: {$row['product_type']}</p>
