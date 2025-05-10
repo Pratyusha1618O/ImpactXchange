@@ -33,13 +33,7 @@ if($result->num_rows > 0)
             color: #333;
         }
 
-        .card:target {
-            /* border: 2px solid #f9f8f8; */
-            background: ;
-            /* box-shadow: 0 0 15px   #fff674; */
-            background: linear-gradient(-45deg , #fff237, #f9f8f8);
-        }
-
+        
         .dashboard-container {
             margin-top: 3.5rem;
             display: flex;
@@ -114,7 +108,7 @@ if($result->num_rows > 0)
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            /* box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); */
         }
 
         .card h3 {
@@ -128,6 +122,13 @@ if($result->num_rows > 0)
             color: #555;
             margin-bottom: 15px;
         }
+
+        .card:target {
+            border: 1px solid #3498db;
+            box-shadow: 0 0 10px  #3498db;
+            /* background: linear-gradient(-45deg ,rgb(233, 228, 255),rgb(255, 255, 255)); */
+        }
+
 
         .btn {
             background-color:rgb(99, 182, 255);
@@ -166,8 +167,8 @@ if($result->num_rows > 0)
                 </li>
                 <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Saved Items</a></li>
                 <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
-                <li><a href="settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
-                <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
+                <li><a href="user-settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
+                <li><a href="feedback.php"><i class="fas fa-star"></i> Feedback & Rating</a></li>
                 <li><a href="user-logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
             </ul>
         </aside>
