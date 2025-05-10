@@ -121,14 +121,18 @@
     <div class="dashboard">
         <!-- Sidebar -->
         <div class="sidebar">
-            <h2><i class="fas fa-donate"></i> Admin Panel</h2>
+            <h2><i class="fas fa-donate"></i> Welcome <?php echo "{$row['admin_name']}" ?></h2>
             <ul>
+                <!-- <li><a href="#"><i class="fa-solid fa-user"></i>
+                    <?php //echo "{$row['admin_name']}" ?>
+                </a>
+            </li> -->
                 <li><a href="admin-dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="#"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
-                <li><a href=""><i class="fas fa-bullhorn"></i> Campaigns</a></li>
-                <li><a href="report.php"><i class="fas fa-chart-line"></i> Reports</a></li>
-                <li><a href="#"><i class="fas fa-users"></i> Users</a></li>
-                <li><a href="#"><i class="fas fa-users"></i>NGOs</a></li>
+                <li><a href="admin-dashboard.php#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
+                <li><a href="admin-dashboard.php#campaign"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
+                <li><a href="adminDashboard-report.php"><i class="fas fa-chart-line"></i> Reports</a></li>
+                <li><a href="adminDashboard-users.php"><i class="fas fa-users"></i>Users</a></li>
+                <li><a href="adminDashboard-ngos.php"><i class="fas fa-users"></i>NGOs</a></li>
                 <li><a href="settings.php"><i class="fas fa-cog"></i> Settings</a></li>
                 <li><a href="admin-logout.php"><i class="fa-solid fa-right-from-bracket"></i> Log out</a></li>
             </ul>

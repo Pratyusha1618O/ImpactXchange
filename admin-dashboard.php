@@ -195,9 +195,9 @@
 
         .card:target {
             /* border: 2px solid #f9f8f8; */
-            background: ;
-            /* box-shadow: 0 0 15px   #fff674; */
-            background: linear-gradient(-45deg ,hsl(65, 100.00%, 57.60%), #f9f8f8);
+            border: 1px solid #3498db;
+            box-shadow: 0 0 8px    #3498db;
+            /* background: linear-gradient(-45deg , #9B87F5, #f9f8f8); */
         }
 
         
