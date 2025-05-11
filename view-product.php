@@ -21,7 +21,17 @@ else {
 $sql = "SELECT * FROM product";
 $result = mysqli_query($dbcon, $sql);
 
+if(isset($_POST['add_to_cart'])){
+    $product_id = $_POST['product_id'];
 
+    $uid = "SELECT user_id FROM user where user_email = '$email' ";
+    $query = mysqli_query($dbcon, $uid);
+    $row = mysqli_fetch_array($query);
+    $user_id = $row['user_id'];
+
+    $cartSQL = "INSERT INTO cart(user_id, product_id) VALUES('$user_id', '$product_id')";
+    $cart = mysqli_query($dbcon, $cartSQL);
+}
 
 
 ?>

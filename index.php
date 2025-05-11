@@ -312,7 +312,7 @@ else {
             <h1>Ready to Make an Impact?</h1>
             <p>Join thousands of donors and NGOs already connecting resources <br> with those who need them most.</p>
             <div class="sec6-btns">
-                <button>Join As Donor</button>
+                <button onclick="window.location.href='user-registration.php'">Join As Donor</button>
                 <button onclick="window.location.href='ngoRegistration.php'">Register Your NGO</button>
             </div>
         </div>
