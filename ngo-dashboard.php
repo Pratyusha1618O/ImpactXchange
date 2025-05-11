@@ -144,10 +144,8 @@
         }
 
         .card:target {
-            /* border: 2px solid #f9f8f8; */
-            background: ;
-            /* box-shadow: 0 0 15px   #fff674; */
-            background: linear-gradient(-45deg , #fff237, #f9f8f8);
+            border: 1px solid #3498db;
+            box-shadow: 0 0 10px  #3498db;
         }
     </style>
 </head>
@@ -163,8 +161,8 @@
                 </li>
                 <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Collected Items</a></li>
                 <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
-                <li><a href="settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
-                <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
+                <li><a href="ngo-settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
+                <li><a href="ngo-feedback.php"><i class="fas fa-star"></i> Feedback & Rating</a></li>
                 <li><a href="ngo-logout.php">Logout</a></li>
             </ul>
         </aside>
