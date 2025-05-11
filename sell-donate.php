@@ -48,8 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             echo "<script>alert('Please upload an image.');</script>";
         }
     } else {
-        echo "<script>alert('User not found.');</script>";
-    }
+    echo "<script>
+        alert('User not found. Please register first.');
+        window.location.href = 'user-registration.php';
+    </script>";
+    exit();
+}
 }
 ?>
 
@@ -74,6 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             justify-content: center;
             align-items: center;
             height: 100vh;
+            /* background: linear-gradient(-45deg,rgb(118, 84, 255),rgb(158, 228, 255), #f9f8f8); */
+            background: linear-gradient(-45deg, #F97316, #fff237, #f9f8f8);
+
         }
 
         .container {
