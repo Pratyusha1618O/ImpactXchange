@@ -184,7 +184,7 @@
                     <table>
                     <tr>
                         <th>Product Name</th>
-                        <th>Purchase Date</th>
+                        <th>Donation Date</th>
                         <th>Price</th>
                         
                     </tr>";
