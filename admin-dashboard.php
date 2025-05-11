@@ -226,7 +226,7 @@
             <div class="header">
                 <h5>Dashboard</h5>
                 <button class="notification">
-                    <i class="fas fa-bell"></i> Notifications
+                    <a href="adminDashboard-notification.php" style="text-decoration: none; color: white"><i class="fas fa-bell"></i> Notifications</a>
                 </button>
             </div>
             <div class="summary">
