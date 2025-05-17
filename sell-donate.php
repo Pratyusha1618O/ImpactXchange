@@ -78,8 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* background: linear-gradient(-45deg,rgb(118, 84, 255),rgb(158, 228, 255), #f9f8f8); */
-            background: linear-gradient(-45deg, #F97316, #fff237, #f9f8f8);
+            background: linear-gradient(-45deg,rgb(196, 181, 255), #9ee4ff,rgb(255, 210, 210));
+            /* background: linear-gradient(-45deg, #F97316, #fff237, #f9f8f8); */
 
         }
 
@@ -205,7 +205,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         <div class="left-section">
             <h2>Welcome!</h2>
             <p>Want to donate or sell a product?</p>
-            <a href="product-list.php"><button>View Products</button></a>
+            <a href="view-product.php"><button>View Products</button></a>
         </div>
 
         <form method="POST" action="sell-donate.php" enctype="multipart/form-data">
