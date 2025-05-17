@@ -5,23 +5,20 @@ include("./server/config.php");
 if (isset($_SESSION['email'])) {
     include("user_logged_in_nav.php");
     $email = $_SESSION['email'];
-} 
-else if (isset($_SESSION["ngo-email"])) {
+} else if (isset($_SESSION["ngo-email"])) {
     include("ngo_loggedin_nav.php");
     $email = $_SESSION['ngo-email'];
-} 
-else if (isset($_SESSION["admin-email"])) {
+} else if (isset($_SESSION["admin-email"])) {
     include("admin_loggedin_nav.php");
     $email = $_SESSION['admin-email'];
-} 
-else {
+} else {
     include("header.php");
 }
 
 $sql = "SELECT * FROM product";
 $result = mysqli_query($dbcon, $sql);
 
-if(isset($_POST['add_to_cart'])){
+if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_id'];
 
     $uid = "SELECT user_id FROM user where user_email = '$email' ";
@@ -29,8 +26,10 @@ if(isset($_POST['add_to_cart'])){
     $row = mysqli_fetch_array($query);
     $user_id = $row['user_id'];
 
-    $cartSQL = "INSERT INTO cart(user_id, product_id) VALUES('$user_id', '$product_id')";
+    $cartSQL = "INSERT INTO cart (user_id, product_id) VALUES('$user_id', '$product_id')";
     $cart = mysqli_query($dbcon, $cartSQL);
+    // header("Location: userDashboard-saved-items.php");
+
 }
 
 
@@ -209,6 +208,7 @@ if(isset($_POST['add_to_cart'])){
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .product-card {
@@ -218,6 +218,7 @@ if(isset($_POST['add_to_cart'])){
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+            height: 55vh;
 
         }
 
@@ -243,11 +244,16 @@ if(isset($_POST['add_to_cart'])){
             margin: 5px 0;
         }
 
+        .details{
+            height: 45vh;
+        }
+
         .product-actions {
             display: flex;
             justify-content: space-between;
             padding: 10px;
             background-color: #f9f9f9;
+            
         }
 
         .product-actions button {
@@ -270,6 +276,8 @@ if(isset($_POST['add_to_cart'])){
         .view-details {
             background-color: #ddd;
             color: #333;
+            border-radius: 5px;
+            padding: 7px 12px;
         }
 
         .view-details:hover {
@@ -323,6 +331,11 @@ if(isset($_POST['add_to_cart'])){
             font-weight: 500;
             font-size: 20px;
             padding-bottom: 3rem;
+        }
+
+        .product-card:target {
+            border: 1px solid #d3d3d3;
+            box-shadow: 0 0 8px #1f42f0;
         }
     </style>
 </head>
@@ -446,19 +459,6 @@ if(isset($_POST['add_to_cart'])){
         </div>
     </div>
 
-    <!-- Image Slider -->
-    <div class="slider">
-        <div class="slides">
-            <img src="https://5.imimg.com/data5/JK/IZ/IC/GLADMIN-21091869/selection-223-500x500.png"
-                alt="Featured Product 1">
-            <img src="https://cdn.dotpe.in/longtail/store-items/4871412/TDe9VM7W.jpeg" alt="Featured Product 2">
-            <img src="https://static3.depositphotos.com/1006969/219/i/450/depositphotos_2191121-Store-Cloths-Hangers-on-Rail.jpg"
-                alt="Featured Product 3">
-        </div>
-        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="next" onclick="moveSlide(1)">&#10095;</button>
-    </div>
-
     <!-- Product Section -->
     <div class="product-section">
         <h2>Our Products</h2>
@@ -466,22 +466,28 @@ if(isset($_POST['add_to_cart'])){
             <?php
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
+                    $productId = $row['product_id'];
                     echo <<<HTML
-                            <div class="product-card" data-category="{$row['product_type']}">
-                                <img src="./product_images/{$row['product_img']}" alt="Product Image">
+                            <div class="product-card" data-category="{$row['product_type']}" id="{$row['product_id']}">
+                            <div class="details">    
+                            <img src="./product_images/{$row['product_img']}" alt="Product Image">
                                 <h3>{$row['product_name']}</h3>
                                 <p>Price: ₹{$row['product_price']}</p>
                                 <p>Category: {$row['product_type']}</p>
                                 <p>{$row['product_details']}</p>
-                        
+                            </div>
                                 
                                 <div class="product-actions">
                                     <form method="POST" style="display: inline;">
-                                        <input type="hidden" name="product_id" value='product_id'>
+                                        <input type="hidden" name="product_id" class="pid" id="{$row['product_id']}" value="{$row['product_id']}">
                                         <button type="submit" name="add_to_cart" class="add-to-cart">Add to Cart</button>
+                                        
                                     </form>
-                                    <button class="view-details">Buy Now</button>
+                                    <!-- <button class="view-details" name="buy">Buy Now</a></button> -->
+                                    <a href="buy-now.php?product_id={$row['product_id']}" class="view-details" style="text-decoration:none; color: black">Buy Now</a>
+
                                 </div>
+
                             </div>
                         HTML;
                 }
@@ -517,6 +523,18 @@ if(isset($_POST['add_to_cart'])){
             currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
+
+        // added tp cart
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        //     addToCartButtons.forEach(function (button) {
+        //         button.addEventListener('click', function () {
+        //             button.innerText = 'Added';
+        //             button.disabled = true;
+        //         });
+        //     });
+        // });
     </script>
 </body>
 
