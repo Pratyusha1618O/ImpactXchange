@@ -7,7 +7,7 @@ include("user_logged_in_nav.php");
 $email = $_SESSION['email'];
 
 // SQL to fetch saved products joined with product details
-$sql = "SELECT DISTINCT product.product_name, product.product_price, product.product_type, product.product_img
+$sql = "SELECT DISTINCT *
         FROM cart
         JOIN product ON cart.product_id = product.product_id
         JOIN user ON user.user_id = cart.user_id 
@@ -15,6 +15,24 @@ $sql = "SELECT DISTINCT product.product_name, product.product_price, product.pro
 
 
 $result = mysqli_query($dbcon, $sql);
+
+
+
+if (isset($_POST['delete'])) {
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+
+        $product_id = $row['product_id'];
+        $user_id = $row['user_id'];
+
+        $dlt_sql = "DELETE FROM cart WHERE product_id = '$product_id' AND user_id = '$user_id' ";
+        mysqli_query($dbcon, $dlt_sql);
+
+    }
+
+
+}
+
 
 ?>
 
@@ -108,6 +126,43 @@ $result = mysqli_query($dbcon, $sql);
             color: #F97316;
             font-weight: bold;
         }
+
+        .view-btn {
+            /* margin-top: 10px; */
+            padding: 8px 16px;
+            background-color: #07145f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+            /* display: inline-block; */
+        }
+
+        .view-btn:hover {
+            background-color: #1e2a91;
+        }
+
+        .btns{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .dlt-btn {
+            padding: 8px 16px;
+            color: white;
+            background-color: rgb(212, 48, 78);
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .dlt-btn:hover {
+            background-color:rgb(176, 42, 37);
+        }
     </style>
 </head>
 
@@ -122,29 +177,36 @@ $result = mysqli_query($dbcon, $sql);
 
         <div class="saved-items-grid">
             <?php
-                if (mysqli_num_rows($result) > 0) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                        <div class="item-card">
-                            <div class="item-image">
-                                <img src="<?php echo $row['product_img'] ? $row['product_img'] : 'https://via.placeholder.com/300x180'; ?>"
-                                    alt="Product Image" width="300">
-                            </div>
-                            <div class="item-details">
-                                <h3>Product: <?php echo htmlspecialchars($row['product_name']); ?></h3>
-                                <p>Category: <?php echo htmlspecialchars($row['product_type']); ?></p>
-                                <p class="item-price">
-                                    <?php
-                                    echo $row['product_price'] == 0 ? 'Free' : '₹' . htmlspecialchars($row['product_price']);
-                                    ?>
-                                </p>
-                            </div>
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="item-card">
+                        <div class="item-image">
+                            <img src="product_images/<?php echo $row['product_img']; ?>?>" alt="Product Image" width="300">
                         </div>
-                        <?php
-                    }
-                } else {
-                    $msg = "No items saved yet.";
+                        <div class="item-details">
+                            <h3>Product: <?php echo htmlspecialchars($row['product_name']); ?></h3>
+                            <p>Category: <?php echo htmlspecialchars($row['product_type']); ?></p>
+                            <p class="item-price">
+                                <?php
+                                echo $row['product_price'] == 0 ? 'Free' : '₹' . htmlspecialchars($row['product_price']);
+                                ?>
+                            </p>
+                        </div>
+
+                        <div style="text-align: center;" class="btns">
+                            <a href="view-product.php#<?php echo $row['product_id']; ?>" class="view-btn">View</a>
+                            <form method="POST">
+                                <button class="dlt-btn" name="delete">Remove</button>
+                            </form>
+                        </div>
+
+                    </div>
+                    <?php
                 }
+            } else {
+                $msg = "No items saved yet.";
+            }
             ?>
             <!-- <div class="item-card">
                 <div class="item-image">
@@ -184,11 +246,11 @@ $result = mysqli_query($dbcon, $sql);
         </div>
 
         <?php if (!empty($msg)) { ?>
-                <h2 style="color: #29cf2f; margin-top: 10px; text-align: center;">
-                    <?php echo $msg; ?>
-                </h2>
-                <!-- <button>View Now</button> -->
-            <?php } ?>
+            <h2 style="color: #29cf2f; margin-top: 10px; text-align: center;">
+                <?php echo $msg; ?>
+            </h2>
+            <!-- <button>View Now</button> -->
+        <?php } ?>
     </div>
 
 </body>

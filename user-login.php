@@ -7,14 +7,14 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
     $user_password = base64_encode($_POST["password"]);
 
     //check if already logged in
-    $checkSQL = "SELECT * FROM login where user_email = '$user_email' AND user_password = '$user_password' ";
-    $check_query = mysqli_query($dbcon, $checkSQL);
+    // $checkSQL = "SELECT * FROM login where user_email = '$user_email' AND user_password = '$user_password' ";
+    // $check_query = mysqli_query($dbcon, $checkSQL);
 
-    if($check_query->num_rows > 0) {
-        $errorMsg = "Already logged in";
-        // header("Location: user-dashboard.php");
-    }
-    else {
+    // if($check_query->num_rows > 0) {
+    //     $errorMsg = "Already logged in";
+    //     // header("Location: user-dashboard.php");
+    // }
+    // else {
         //fetching data from user table
         $sql = "SELECT * FROM user WHERE user_email = '$user_email' AND user_password = '$user_password' ";
         $result = mysqli_query($dbcon, $sql);
@@ -24,10 +24,10 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
                 $user_id = $row['user_id'];
     
                 // inserting data into login table
-                $loginSQL = "INSERT INTO login(user_id, user_email, user_password) 
-                        VALUES('$user_id','$user_email','$user_password' )";
+                // $loginSQL = "INSERT INTO login(user_id, user_email, user_password) 
+                //         VALUES('$user_id','$user_email','$user_password' )";
     
-                $result2 = mysqli_query($dbcon, $loginSQL);
+                // $result2 = mysqli_query($dbcon, $loginSQL);
                 $_SESSION['email'] = $row['user_email'];
     
                 header("Location: user-dashboard.php");
@@ -36,7 +36,7 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
         } else {
             $errorMsg = "Incorrect email or password!!";
         }
-    }
+    // }
     
 }
 ?>
