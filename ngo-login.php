@@ -73,7 +73,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(-45deg, #F97316, #fff237, #f9f8f8);
+            /* background: linear-gradient(-45deg, #F97316, #fff237, #f9f8f8); */
+            background: linear-gradient(-45deg,rgb(196, 181, 255), #9ee4ff,rgb(255, 210, 210));
 
         }
         .container {
