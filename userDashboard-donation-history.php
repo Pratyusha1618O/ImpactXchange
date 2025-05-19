@@ -14,7 +14,7 @@
     $result1 = mysqli_query($dbcon, $sql_purchase);
 
     // $sql_donation = "SELECT * FROM product p JOIN user u ON p.user_id = u.user_id WHERE u.user_email = '$email' ";
-    $sql_donation = "SELECT p.product_name, p.product_price, p.donation_date 
+    $sql_donation = "SELECT * 
                  FROM product p 
                  JOIN user u ON p.user_id = u.user_id 
                  WHERE u.user_email = '$email'";
@@ -186,6 +186,7 @@
                         <th>Product Name</th>
                         <th>Donation Date</th>
                         <th>Price</th>
+                        <th>Status</th>
                         
                     </tr>";
                 while ($row2 = $result2->fetch_assoc()) {
@@ -194,6 +195,7 @@
                             <td>{$row2['product_name']}</td>
                             <td>{$row2['donation_date']}</td>
                             <td>{$row2['product_price']}</td>
+                            <td>{$row2['admin_status']}</td>
                             
                         </tr>";
                 }
