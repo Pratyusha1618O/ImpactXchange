@@ -10,17 +10,17 @@ if (isset($_SESSION['email'])) {
     $user_email = $_SESSION['email'];
     $sql = "SELECT * FROM user WHERE user_email = '$user_email' ";
     $result = mysqli_query($dbcon, $sql);
-    $row = mysqli_fetch_array($result);
+    $row = mysqli_fetch_assoc($result);
     $user_id = $row['user_id'];
-    
+
 } else if (isset($_SESSION["ngo-email"])) {
     include("ngo_loggedin_nav.php");
     $ngo_email = $_SESSION['ngo-email'];
     $sql = "SELECT * FROM ngo WHERE ngo_email = '$ngo_email' ";
     $result = mysqli_query($dbcon, $sql);
-    $row = mysqli_fetch_array($result);
+    $row = mysqli_fetch_assoc($result);
     $ngo_id = $row['ngo_id'];
-    
+
 } else if (isset($_SESSION["admin-email"])) {
     include("admin_loggedin_nav.php");
     $email = $_SESSION['admin-email'];
@@ -41,27 +41,16 @@ if (isset($_GET['product_id'])) {
     echo "Product not found.";
 }
 
-// if (isset($_POST["submit"])) {
-//     $today_date = date("Y-m-d");
-
-//     $sql = "INSERT INTO purchase (user_id, product_id, purchase_date, ngo_id) VALUES
-//             ('$user_id', '$product_id', '$today_date', '$ngo_id')";
-//     // $result = mysqli_query($dbcon, $sql);
-//     if (mysqli_query($dbcon, $sql)) {
-//         echo "<script>alert('Purchase successful!'); window.location.href='userDashboard-donation-history.php';</script>";
-//     } else {
-//         echo "Error: " . mysqli_error($dbcon);
-//     }
-// }
 
 if (isset($_POST["submit"])) {
     $today_date = date("Y-m-d");
+    $product_id = $_POST['product_id'];
 
-    echo "DEBUG VALUES:<br>";
-    echo "User ID: " . $user_id . "<br>";
-    echo "NGO ID: " . $ngo_id . "<br>";
-    echo "Product ID: " . $product_id . "<br>";
-    echo "Date: " . $today_date . "<br>";
+    // echo "DEBUG VALUES:<br>";
+    // echo "User ID: " . $user_id . "<br>";
+    // echo "NGO ID: " . $ngo_id . "<br>";
+    // echo "Product ID: " . $product_id . "<br>";
+    // echo "Date: " . $today_date . "<br>";
 
     $sql = "INSERT IGNORE INTO purchase (user_id, product_id, purchase_date, ngo_id) VALUES (
         " . ($user_id === "NULL" ? "NULL" : "'$user_id'") . ",
@@ -73,10 +62,18 @@ if (isset($_POST["submit"])) {
     echo "<br><b>Final SQL:</b> $sql<br>";
 
     if (mysqli_query($dbcon, $sql)) {
-        echo "<script>alert('Purchase successful!'); window.location.href='userDashboard-donation-history.php';</script>";
+        echo "<script>alert('Purchase successful!');</script>";
+        // After purchase insert succeeds:
+        $markSold = "UPDATE product SET status='sold' WHERE product_id = '$product_id'";
+        mysqli_query($dbcon, $markSold);
+        // then remove from cart only
+        mysqli_query($dbcon, "DELETE FROM cart WHERE product_id = '$product_id'");
     } else {
         echo "Error: " . mysqli_error($dbcon);
     }
+
+
+
 }
 
 
@@ -236,6 +233,9 @@ if (isset($_POST["submit"])) {
 
         </div>
         <form method="POST">
+            <!-- carry the product_id into POST -->
+            <input type="hidden" name="product_id" value="<?= htmlspecialchars($product['product_id']) ?>">
+
             <label for="address">Delivery Address</label>
             <textarea name="address" id="address" placeholder="Enter your full delivery address" required></textarea>
 

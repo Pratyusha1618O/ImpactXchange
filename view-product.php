@@ -15,7 +15,7 @@ if (isset($_SESSION['email'])) {
     include("header.php");
 }
 
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM product WHERE admin_status = 'approved'";
 $result = mysqli_query($dbcon, $sql);
 
 if (isset($_POST['add_to_cart'])) {
@@ -209,6 +209,9 @@ if (isset($_POST['add_to_cart'])) {
             gap: 20px;
             flex-wrap: wrap;
             align-items: center;
+            background-color: #f9f8f8;
+            padding: 1rem 0;
+            border-radius: 10px;
         }
 
         .product-card {
@@ -245,7 +248,7 @@ if (isset($_POST['add_to_cart'])) {
         }
 
         .details{
-            height: 45vh;
+            height: 45vh ;
         }
 
         .product-actions {
@@ -253,7 +256,7 @@ if (isset($_POST['add_to_cart'])) {
             justify-content: space-between;
             padding: 10px;
             background-color: #f9f9f9;
-            
+            margin-top: 5px;
         }
 
         .product-actions button {
@@ -467,15 +470,17 @@ if (isset($_POST['add_to_cart'])) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $productId = $row['product_id'];
+                    $priceText = ($row['product_price'] == 0) ? 'Free' : '₹' . $row['product_price'];
                     echo <<<HTML
                             <div class="product-card" data-category="{$row['product_type']}" id="{$row['product_id']}">
-                            <div class="details">    
-                            <img src="./product_images/{$row['product_img']}" alt="Product Image">
-                                <h3>{$row['product_name']}</h3>
-                                <p>Price: ₹{$row['product_price']}</p>
-                                <p>Category: {$row['product_type']}</p>
-                                <p>{$row['product_details']}</p>
-                            </div>
+                                <div class="details">    
+                                    <img src="./product_images/{$row['product_img']}" alt="Product Image">
+                                    <h3>{$row['product_name']}</h3>
+                                    <p style="color: #37a8fe">{$row['status']}</p>
+                                    <p><strong style="color:rgb(35, 187, 1)">Price: {$priceText}</strong></p>
+                                    <p>Category: {$row['product_type']}</p>
+                                    <p>{$row['product_details']}</p>
+                                </div>
                                 
                                 <div class="product-actions">
                                     <form method="POST" style="display: inline;">

@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
             if ($result) {
                 move_uploaded_file($tempfile, $folder);
-                echo "<script>alert('Product uploaded successfully!');</script>";
+                echo "<script>alert('Product uploaded successfully for admin approval!');</script>";
             } else {
                 echo "<script>alert('Database Error: " . mysqli_error($dbcon) . "');</script>";
             }
@@ -237,6 +237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                         <option value="education">Education</option>
                         <option value="health">Health & Hygiene</option>
                         <option value="food">Food</option>
+                        <option value="Kids">Kids</option>
                     </select>
                 </div>
 
