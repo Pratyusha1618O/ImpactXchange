@@ -33,6 +33,7 @@ if (isset($_POST['add_to_cart'])) {
 }
 
 
+
 ?>
 
 
@@ -247,8 +248,8 @@ if (isset($_POST['add_to_cart'])) {
             margin: 5px 0;
         }
 
-        .details{
-            height: 45vh ;
+        .details {
+            height: 45vh;
         }
 
         .product-actions {
@@ -339,6 +340,12 @@ if (isset($_POST['add_to_cart'])) {
         .product-card:target {
             border: 1px solid #d3d3d3;
             box-shadow: 0 0 8px #1f42f0;
+        }
+
+        .disabled-btn {
+            background: #ccc !important;
+            color: #666 !important;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -471,6 +478,8 @@ if (isset($_POST['add_to_cart'])) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     $productId = $row['product_id'];
                     $priceText = ($row['product_price'] == 0) ? 'Free' : '₹' . $row['product_price'];
+                    $disableButtons = ($row['status'] === 'sold') ? 'style="pointer-events: none; opacity: 0.6;"' : '';
+
                     echo <<<HTML
                             <div class="product-card" data-category="{$row['product_type']}" id="{$row['product_id']}">
                                 <div class="details">    
@@ -482,7 +491,7 @@ if (isset($_POST['add_to_cart'])) {
                                     <p>{$row['product_details']}</p>
                                 </div>
                                 
-                                <div class="product-actions">
+                                <div class="product-actions" {$disableButtons}>
                                     <form method="POST" style="display: inline;">
                                         <input type="hidden" name="product_id" class="pid" id="{$row['product_id']}" value="{$row['product_id']}">
                                         <button type="submit" name="add_to_cart" class="add-to-cart">Add to Cart</button>
@@ -490,7 +499,7 @@ if (isset($_POST['add_to_cart'])) {
                                     </form>
                                     <!-- <button class="view-details" name="buy">Buy Now</a></button> -->
                                     <a href="buy-now.php?product_id={$row['product_id']}" class="view-details" style="text-decoration:none; color: black">Buy Now</a>
-
+                                    
                                 </div>
 
                             </div>
