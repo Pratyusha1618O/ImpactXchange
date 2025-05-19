@@ -11,11 +11,11 @@
         $checkSQL = "SELECT * FROM ngo_login where ngo_email = '$ngo_email' AND ngo_password = '$ngo_password' ";
         $check_query = mysqli_query($dbcon, $checkSQL);
 
-        if($check_query->num_rows > 0) {
-            header("Location: ngo-dashboard.php");
-            // $errorMsg = "Already logged in";
-        }
-        else {
+        // if($check_query->num_rows > 0) {
+        //     header("Location: ngo-dashboard.php");
+        //     // $errorMsg = "Already logged in";
+        // }
+        // else {
             //fetching data from ngo table
             $sql = "SELECT * FROM ngo WHERE ngo_email = '$ngo_email' AND ngo_password = '$ngo_password' ";
             $result = mysqli_query($dbcon, $sql);
@@ -38,7 +38,7 @@
                 $errorMsg = "No record found";
             }
 
-        }
+        // }
 
         
     }

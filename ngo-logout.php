@@ -4,8 +4,8 @@
     include("./server/config.php");
     $email = $_SESSION['ngo-email'];
 
-    $sql = "DELETE FROM ngo_login  WHERE ngo_email = '$email' ";
-    mysqli_query($dbcon, $sql);
+    // $sql = "DELETE FROM ngo_login  WHERE ngo_email = '$email' ";
+    // mysqli_query($dbcon, $sql);
 
 
     session_unset();
