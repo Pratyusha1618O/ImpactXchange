@@ -30,6 +30,9 @@ if (isset($_POST['delete'])) {
     $dlt_sql = "DELETE FROM product WHERE user_id = '$userid' AND product_id = '$pid' ";
     mysqli_query($dbcon, $dlt_sql);
 
+    echo "<script>window.location.href = window.location.href;</script>";
+    exit();
+
 }
 
 ?>
@@ -327,6 +330,7 @@ if (isset($_POST['delete'])) {
                             <th>Date</th>
                             <th>Price</th>
                             <th>Image</th>
+                            <th>Status</th>
                             <th></th> 
                         </tr>";
                 while ($row1 = $result_product->fetch_assoc()) {
@@ -341,6 +345,7 @@ if (isset($_POST['delete'])) {
                                     <td>
                                         <a href="javascript:void(0)" onclick="showImageModal('{$row1['product_img'] }')" style="margin-left:10px; text-decoration:none; color: black"><i class="fa-solid fa-file-image"></i></a>
                                     </td>
+                                    <td>{$row1['status']}</td>
                                     <td><button class="dlt-btn" name="delete">Delete</button></td>
                                 </form> 
                             </tr>
