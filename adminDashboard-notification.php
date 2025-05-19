@@ -110,18 +110,18 @@ $result_ngo = mysqli_query($dbcon, $sql_ngo);
 
         .card {
             background-color: #ffffff;
-            border-radius: 8px;
+            /* border-radius: 8px; */
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #3498db;
             flex: 1;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .card:hover {
+        /* .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
+        } */
 
         .card h3 {
             margin: 0 0 10px;
@@ -227,6 +227,7 @@ $result_ngo = mysqli_query($dbcon, $sql_ngo);
             </li> -->
                 <li><a href="admin-dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="admin-dashboard.php#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
+                <li><a href="adminDashboard-pending.php"><i class="fa-regular fa-clock"></i> Pending Approvals</a></li>
                 <li><a href="admin-dashboard.php#campaign"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
                 <li><a href="adminDashboard-report.php"><i class="fas fa-chart-line"></i> Reports</a></li>
                 <li><a href="adminDashboard-users.php"><i class="fas fa-users"></i>Users</a></li>

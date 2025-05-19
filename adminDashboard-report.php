@@ -129,6 +129,7 @@
             </li> -->
                 <li><a href="admin-dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="admin-dashboard.php#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
+                <li><a href="adminDashboard-pending.php"><i class="fa-regular fa-clock"></i> Pending Approvals</a></li>
                 <li><a href="admin-dashboard.php#campaign"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
                 <li><a href="adminDashboard-report.php"><i class="fas fa-chart-line"></i> Reports</a></li>
                 <li><a href="adminDashboard-users.php"><i class="fas fa-users"></i>Users</a></li>

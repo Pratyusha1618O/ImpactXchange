@@ -4,8 +4,8 @@
     include("./server/config.php");
     $email = $_SESSION['admin-email'];
 
-    $sql = "DELETE FROM admin_login  WHERE admin_email = '$email' ";
-    mysqli_query($dbcon, $sql);
+    // $sql = "DELETE FROM admin_login  WHERE admin_email = '$email' ";
+    // mysqli_query($dbcon, $sql);
 
 
     session_unset();

@@ -10,11 +10,11 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
     $checkSQL = "SELECT * FROM admin_login where admin_email = '$admin_email' AND admin_password = '$admin_password' ";
     $check_query = mysqli_query($dbcon, $checkSQL);
 
-    if($check_query->num_rows > 0) {
-        // $errorMsg = "Already logged in";
-        header("Location: admin-dashboard.php");
-    }
-    else {
+    // if($check_query->num_rows > 0) {
+    //     // $errorMsg = "Already logged in";
+    //     header("Location: admin-dashboard.php");
+    // }
+    // else {
         //fetching data from admin table
         $sql = "SELECT * FROM admin WHERE admin_email = '$admin_email' AND admin_password = '$admin_password' ";
         $result = mysqli_query($dbcon, $sql);
@@ -36,7 +36,7 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
         } else {
             $errorMsg = "No record found";
         }
-    }
+    // }
     
 }
 ?>
