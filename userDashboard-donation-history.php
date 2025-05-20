@@ -209,7 +209,7 @@
 
             <?php if (!empty($msg2)) { ?>
                 <h2 style="color: green; margin-top: 10px; text-align: center; ">
-                    <?php echo $msg; ?>
+                    <?php echo $msg2; ?>
                 </h2>
             <?php } ?>
         </div>
