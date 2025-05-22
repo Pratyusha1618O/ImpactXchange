@@ -215,13 +215,13 @@ if($result->num_rows > 0)
             <div class="card" id="settings">
                 <h3>Settings & Security</h3>
                 <p>Change your password, account preferences, or delete your account.</p>
-                <button class="btn">Go to Settings</button>
+                <button class="btn"><a href="user-settings.php">Go to Settings</a></button>
             </div>
 
             <div class="card" id="feedback">
                 <h3>Feedback & Rating</h3>
                 <p>Share your feedback or rate our platform.</p>
-                <button class="btn">Submit Feedback</button>
+                <button class="btn"><a href="feedback.php">Submit Feedback</a></button>
             </div>
 
 
