@@ -19,19 +19,30 @@ $sql = "SELECT * FROM product WHERE admin_status = 'approved'";
 $result = mysqli_query($dbcon, $sql);
 
 if (isset($_POST['add_to_cart'])) {
-    $product_id = $_POST['product_id'];
+    if (isset($email)) {
+        $product_id = $_POST['product_id'];
 
-    $uid = "SELECT user_id FROM user where user_email = '$email' ";
-    $query = mysqli_query($dbcon, $uid);
-    $row = mysqli_fetch_array($query);
-    $user_id = $row['user_id'];
+        $uid = "SELECT user_id FROM user where user_email = '$email' ";
+        $query = mysqli_query($dbcon, $uid);
+        $row = mysqli_fetch_array($query);
+        $user_id = $row['user_id'];
 
-    $cartSQL = "INSERT INTO cart (user_id, product_id) VALUES('$user_id', '$product_id')";
-    $cart = mysqli_query($dbcon, $cartSQL);
-    // header("Location: userDashboard-saved-items.php");
+        $cartSQL = "INSERT INTO cart (user_id, product_id) VALUES('$user_id', '$product_id')";
+        $cart = mysqli_query($dbcon, $cartSQL);
+
+        header("Location: userDashboard-saved-items.php");
+        exit();
+    }
+    else {
+    echo "<script>
+        alert('User not found. Please register first.');
+        window.location.href = 'user-registration.php';
+    </script>";
+    exit();
+    }
+
 
 }
-
 
 
 ?>
@@ -494,7 +505,7 @@ if (isset($_POST['add_to_cart'])) {
                                 <div class="product-actions" {$disableButtons}>
                                     <form method="POST" style="display: inline;">
                                         <input type="hidden" name="product_id" class="pid" id="{$row['product_id']}" value="{$row['product_id']}">
-                                        <button type="submit" name="add_to_cart" class="add-to-cart">Add to Cart</button>
+                                        <button type="submit" name="add_to_cart" class="add-to-cart">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
                                         
                                     </form>
                                     <!-- <button class="view-details" name="buy">Buy Now</a></button> -->
