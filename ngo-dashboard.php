@@ -154,16 +154,18 @@
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <h2><i class="fas fa-user-circle"></i>NGO Dashboard</h2>
+            <h2>Welcome NGO <br>
+                        <?php echo "{$row['ngo_name']}"?>
+        </h2>
             <ul class="sidebar-links">
                 <li><a href="#personal-details"><i class="fas fa-user"></i>NGO Details</a></li>
                 <!-- <li><a href="#donation-history"><i class="fa-solid fa-pen-to-square"></i> Reports</a> -->
                 </li>
                 <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Collected Items</a></li>
                 <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
-                <li><a href="ngo-settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
-                <li><a href="ngo-feedback.php"><i class="fas fa-star"></i> Feedback & Rating</a></li>
-                <li><a href="ngo-logout.php">Logout</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings & Security</a></li>
+                <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
+                <li><a href="ngo-logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
             </ul>
         </aside>
 
@@ -171,7 +173,7 @@
         <main class="main-content">
             <div class="card" id="personal-details">
                 <h3>NGO Details</h3>
-                <p><strong>Name:</strong>
+                <p><strong>NGO Name:</strong>
                     <?php
                         echo "{$row['ngo_name']}";
                     ?>
@@ -209,13 +211,13 @@
             <div class="card" id="settings">
                 <h3>Settings & Security</h3>
                 <p>Change your password, account preferences, or delete your account.</p>
-                <button class="btn">Go to Settings</button>
+                <button class="btn"><a href="ngoDashboard-volunteer.php">Go to Settings</a></button>
             </div>
 
             <div class="card" id="feedback">
                 <h3>Feedback & Rating</h3>
                 <p>Share your feedback or rate our platform.</p>
-                <button class="btn">Submit Feedback</button>
+                <button class="btn"><a href="ngoDashboard-volunteer.php">Submit Feedback</a></button>
             </div>
 
 
