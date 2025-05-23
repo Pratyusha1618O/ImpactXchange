@@ -6,38 +6,24 @@ if (isset(($_POST['sub'])) && $_POST['sub'] == 'submit') {
     $user_email = $_POST["email"];
     $user_password = base64_encode($_POST["password"]);
 
-    //check if already logged in
-    // $checkSQL = "SELECT * FROM login where user_email = '$user_email' AND user_password = '$user_password' ";
-    // $check_query = mysqli_query($dbcon, $checkSQL);
 
-    // if($check_query->num_rows > 0) {
-    //     $errorMsg = "Already logged in";
-    //     // header("Location: user-dashboard.php");
-    // }
-    // else {
-        //fetching data from user table
-        $sql = "SELECT * FROM user WHERE user_email = '$user_email' AND user_password = '$user_password' ";
-        $result = mysqli_query($dbcon, $sql);
-    
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $user_id = $row['user_id'];
-    
-                // inserting data into login table
-                // $loginSQL = "INSERT INTO login(user_id, user_email, user_password) 
-                //         VALUES('$user_id','$user_email','$user_password' )";
-    
-                // $result2 = mysqli_query($dbcon, $loginSQL);
-                $_SESSION['email'] = $row['user_email'];
-    
-                header("Location: user-dashboard.php");
-                exit();
-            }
-        } else {
-            $errorMsg = "Incorrect email or password!!";
+    //fetching data from user table
+    $sql = "SELECT * FROM user WHERE user_email = '$user_email' AND user_password = '$user_password' ";
+    $result = mysqli_query($dbcon, $sql);
+
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $user_id = $row['user_id'];
+
+            $_SESSION['email'] = $row['user_email'];
+
+            header("Location: user-dashboard.php");
+            exit();
         }
-    // }
-    
+    } else {
+        $errorMsg = "Incorrect email or password!!";
+    }
+
 }
 ?>
 
@@ -63,8 +49,7 @@ include("header.php");
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* background: linear-gradient(-45deg, #F97316, #fff237, #f9f8f8); */
-            background: linear-gradient(-45deg,rgb(196, 181, 255), #9ee4ff,rgb(255, 210, 210));
+            background: linear-gradient(-45deg, rgb(196, 181, 255), #9ee4ff, rgb(255, 210, 210));
 
         }
 
@@ -73,7 +58,6 @@ include("header.php");
             width: 800px;
             height: 500px;
             background-color: rgba(255, 255, 255, 0.9);
-            /* Semi-transparent background */
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;

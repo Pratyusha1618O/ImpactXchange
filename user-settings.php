@@ -177,7 +177,7 @@ if($result->num_rows > 0)
                 <li><a href="userDashboard-saved-items.php"><i class="fas fa-bookmark"></i> Saved Items</a></li>
                 <li><a href="useDashboard-volunteer-status.php"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
                 <li><a href="user-settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
-                <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
+                <li><a href="feedback.php"><i class="fas fa-star"></i> Feedback & Rating</a></li>
                 <li><a href="user-logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
             </ul>
         </aside>

@@ -222,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <aside class="sidebar">
-        <h2>Dashboard</h2>
+    <h2>Dashboard</h2>
         <ul class="sidebar-links">
             <li><a href="user-dashboard.php"><i class="fas fa-user-circle"></i>
                     <?php echo "{$row['user_name']}" ?>

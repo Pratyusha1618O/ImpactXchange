@@ -167,8 +167,9 @@ if($result->num_rows > 0)
                 </li>
                 <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Saved Items</a></li>
                 <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
-                <li><a href="user-settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
-                <li><a href="feedback.php"><i class="fas fa-star"></i> Feedback & Rating</a></li>
+                <li><a href="#ngos"><i class="fa-solid fa-users-viewfinder"></i> Connect wit NGOs</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings & Security</a></li>
+                <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
                 <li><a href="user-logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
             </ul>
         </aside>
@@ -210,6 +211,12 @@ if($result->num_rows > 0)
                 <h3>Volunteer Status</h3>
                 <p>Track your disaster relief or NGO participation.</p>
                 <button class="btn"><a href="userDashboard-volunteer-status.php">View Status</a></button>
+            </div>
+
+            <div class="card" id="ngos">
+                <h3>Connect with NGOs</h3>
+                <p>View NGOs connected with us and contact them in need</p>
+                <button class="btn"><a href="userDashboard-ngo.php">View Status</a></button>
             </div>
 
             <div class="card" id="settings">
