@@ -25,6 +25,7 @@ else if(isset($_SESSION["admin-email"])){
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;0,800&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/63ce28b4a6.js" crossorigin="anonymous"></script>
+    <title>About</title>
     
     <link rel="stylesheet" href="./style_index.css">
     <link rel="stylesheet" href="./responsive.css">

@@ -508,7 +508,7 @@ if (isset($_POST['add_to_cart'])) {
                                         <button type="submit" name="add_to_cart" class="add-to-cart">Add to Cart <i class="fa-solid fa-cart-shopping"></i></button>
                                         
                                     </form>
-                                    <!-- <button class="view-details" name="buy">Buy Now</a></button> -->
+                            
                                     <a href="buy-now.php?product_id={$row['product_id']}" class="view-details" style="text-decoration:none; color: black">Buy Now</a>
                                     
                                 </div>
@@ -548,18 +548,6 @@ if (isset($_POST['add_to_cart'])) {
             currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
-
-        // added tp cart
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-        //     addToCartButtons.forEach(function (button) {
-        //         button.addEventListener('click', function () {
-        //             button.innerText = 'Added';
-        //             button.disabled = true;
-        //         });
-        //     });
-        // });
     </script>
 </body>
 

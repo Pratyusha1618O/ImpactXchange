@@ -6,11 +6,9 @@ if (isset($_SESSION['email'])) {
     include("user_logged_in_nav.php");
 } else if (isset($_SESSION["ngo-email"])) {
     include("ngo_loggedin_nav.php");
-} 
-else if(isset($_SESSION["admin-email"])){
-    include("admin_loggedin_nav.php");    
-}
-else {
+} else if (isset($_SESSION["admin-email"])) {
+    include("admin_loggedin_nav.php");
+} else {
     include("header.php");
 }
 
@@ -31,28 +29,352 @@ else {
     <script src="https://kit.fontawesome.com/63ce28b4a6.js" crossorigin="anonymous"></script>
     <title>ImpactXchange</title>
     <link rel="stylesheet" href="./style_index.css">
-    <link rel="stylesheet" href="./responsive.css">
+    <!-- <link rel="stylesheet" href="./responsive.css"> -->
     <style>
-        .section-map{
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            --second-bg-color: #f9f8f8;
+            --text-color: #000000;
+            --violet: #9B87F5;
+            --blue: #07145f;
+            --shadow: #494949a1;
+            --grey: #4c4b4b;
+            --yellow: #fff237;
+            --pink: pink;
+            --orange: #F97316;
+            --white: #fff;
+            --red: #ea384c;
+            --magenta: #ff2d6c;
+            --shadow: #acacac;
+            --hover-shadow: #c9c9c9;
+        }
+
+        /* SECTION 1 || HOME PAGE BODY */
+
+        .section1 {
+            background: url("./assets/bgimg.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 90vh;
+            display: flex;
+            transition: background-image 1 ease-in-out;
+        }
+
+        .section1-sub {
+            background: #b8c47a81;
+            height: 90vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section1 .section1-left {
+            background-color: #423a5dad;
+            color: var(--white);
+            width: 55%;
+            padding: 5rem;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+
+        .section1 .section1-left h1 {
+            font-size: 40px;
+        }
+
+        /*--------*/
+        .section1 .section1-right {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            padding: 2rem;
+        }
+
+        /* SECTION 2 || URGENT NOTICE */
+        .section2 {
+            background-color: var(--violet);
+            color: var(--white);
+            padding: 1.2rem 3rem;
+        }
+
+        .section2 .urgent-notice {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section2 .urgent-notice p {
+            font-size: 15px;
+        }
+
+        #btn-learn-how-to-help {
+            border: none;
+            padding: 0.5rem;
+            border-radius: 5px;
+            color: var(--red);
+            cursor: pointer;
+        }
+
+        #btn-learn-how-to-help:hover {
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px #780747;
+            transition: 0.3s;
+        }
+
+        /* SECTION 3 ||  */
+
+        .section3 {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 5rem;
+            background-color: var(--second-bg-color);
+            position: relative;
+            /* z-index: -1; */
+        }
+
+        .section3 .section3-sub {
+            background-color: var(--bg-color);
+            width: 30%;
+            height: 13rem;
+            text-align: center;
+            box-shadow: 2px 1px 5px var(--shadow);
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            transition: 0.3s;
+            gap: 0.5rem;
+        }
+
+        .section3 .section3-sub:hover {
+            box-shadow: 2px 5px 8px var(--hover-shadow);
+        }
+
+        .section3 .section3-sub p {
+            font-size: 15px;
+            color: var(--grey);
+        }
+
+        .section3 .section3-sub>i {
+            color: var(--violet);
+            font-size: 35px;
+        }
+
+        /* ____________________________________________________ */
+        /* HOW IT WORKS */
+
+        .section4 {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .section4 h1 {
+            font-size: 3rem;
+            margin: 2rem 0;
+            color: var(--text-color);
+
+        }
+
+        .section4-sub {
+            display: flex;
+            gap: 5rem;
+        }
+
+        .section4-subsec {
+            background-color: var(--second-bg-color);
+            padding: 3rem;
+            border-radius: 15px;
+            width: 50%;
+        }
+
+        .section4-subsec h3 {
+            font-size: 25px;
+            margin-bottom: 1rem;
+        }
+
+        .section4-subsec .roadmaps {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .roadmap-points {
+            background-color: var(--violet);
+            height: 2rem;
+            width: 2rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .NGO .roadmap-points {
+            background-color: var(--orange);
+        }
+
+        .roadmaps {
+            margin: 2rem 0;
+            height: 6rem;
+        }
+
+        .roadmaps p:nth-child(1) {
+            font-weight: 600;
+            font-size: 18px;
+
+        }
+
+        .roadmaps p:nth-child(2) {
+            color: var(--grey);
+            font-size: 15px;
+        }
+
+        .section4-img {
+            background-color: var(--bg-color);
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        /* SECTION 5 || FEATURED DONATION CATEGORIES */
+
+        .section5 {
+            background-color: var(--second-bg-color);
+            margin-top: 5rem;
+        }
+
+        /* heading */
+        .section5 h1 {
+            text-align: center;
+            font-size: 2rem;
+            padding-top: 5rem;
+        }
+
+        /* category container */
+        .section5-categories {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 3rem;
+        }
+
+        /* category boxes */
+        .categories-box {
+            text-align: center;
+            background-color: var(--bg-color);
+            box-shadow: 1px 2px 3px var(--shadow);
+            height: 18vh;
+            width: 14vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: 0.1s ease;
+        }
+
+        .categories-box:hover {
+            box-shadow: 2px 3px 5px var(--hover-shadow);
+        }
+
+        /* donation count */
+        .donation-count {
+            text-align: center;
+            color: var(--violet);
+            font-weight: 500;
+            font-size: 20px;
+            padding-bottom: 3rem;
+        }
+
+
+        /* SECTION 6 ||  READY TO MAKE AN IMPACT */
+        .section6 {
+            background-color: var(--violet);
+            color: var(--white);
+            padding: 5rem;
+        }
+
+        .section6-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section6-text h1 {
+            font-size: 2.2rem;
+        }
+
+        .section6-text p {
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .section6-text .sec6-btns button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #A48AEF;
+            color: var(--white);
+            box-shadow: 0px 2px 2px #866fcb70;
+            margin: 0 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.1s;
+        }
+
+        .section6-text .sec6-btns button:hover {
+            box-shadow: 0px 7px 5px #866fcb70;
+        }
+
+
+
+        .section-map {
             padding: 3rem 10rem;
             background-color: #f9f8f8;
         }
-        .section-map-box{
+
+        .section-map-box {
             padding: 3rem;
             background-color: #ffffff;
             border-radius: 30px;
             box-shadow: 0 0 8px #acacac;
-            
+
         }
-        .gmap{
-            padding:1rem 2rem;
+
+        .gmap {
+            padding: 1rem 2rem;
             border-radius: 30px;
         }
 
-        .section-map-text{
+        .section-map-text {
             font-weight: 500;
             text-align: center;
             color: #07145f;
+            transform: translateY(-14rem);
+        }
+
+        .section-map-box{
+            height: 95vh;
         }
     </style>
 
@@ -83,7 +405,8 @@ else {
                 <i class="fa-solid fa-triangle-exclamation" style="color: rgb(255, 203, 71);"></i>
                 Urgent Help needed: Disaster relief for super cyclone in Sundarban.
             </p>
-            <button id="btn-learn-how-to-help">Learn How to Help</button>
+            <button id="btn-learn-how-to-help"><a href="contact.php" style="text-decoration: none; color: #ea384c;">
+                    Contact now to help</a></button>
         </div>
 
     </div>
@@ -294,13 +617,13 @@ else {
         <div class="section-map-box">
             <div style="position: relative;" class="gmap">
                 <div style="position: relative; padding-bottom: 75%; height: 0; overflow: hidden;"><iframe
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" loading="lazy"
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 70%; border:0;" loading="lazy"
                         allowfullscreen
                         src="https://maps.google.com/maps?q=269%2C+Diamond+Harbour+Road%2C+Thakurpukur+Kolkata+%E2%80%93+700063&output=embed"></iframe>
                 </div>
                 <a href="https://www.ohiovalleyeats.com/" rel="noopener" target="_blank"
                     style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;">ohiovalleyeats.com</a>
-            </div> 
+            </div>
             <p class="section-map-text">269, Diamond Harbour Road, Thakurpukur Kolkata – 700063 </p>
         </div>
     </div>
@@ -324,29 +647,30 @@ else {
 </body>
 
 <script>
-  function animateDonationCount(target, duration) {
-    const countEl = document.getElementById("donationNumber");
-    const start = 500;
-    const end = target;
-    const range = end - start;
-    const incrementTime = 10;
-    let current = start;
-    const step = Math.ceil((range * incrementTime) / duration);
+    function animateDonationCount(target, duration) {
+        const countEl = document.getElementById("donationNumber");
+        const start = 500;
+        const end = target;
+        const range = end - start;
+        const incrementTime = 10;
+        let current = start;
+        const step = Math.ceil((range * incrementTime) / duration);
 
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= end) {
-        current = end;
-        clearInterval(timer);
-      }
-      countEl.textContent = current;
-    }, incrementTime);
-  }
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= end) {
+                current = end;
+                clearInterval(timer);
+            }
+            countEl.textContent = current;
+        }, incrementTime);
+    }
 
-  // Start animation when page loads
-  window.onload = () => {
-    animateDonationCount(1000, 2000); 
-  };
+    // Start animation when page loads
+    window.onload = () => {
+        animateDonationCount(1000, 2000);
+    };
+
 </script>
 
 </html>
