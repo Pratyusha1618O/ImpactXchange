@@ -170,9 +170,9 @@ if ($result->num_rows > 0) {
             <h2><i class="fas fa-user-circle"></i>NGO Dashboard</h2>
             <ul class="sidebar-links">
                 <li><a href="ngo-dashboard.php#personal-details"><i class="fas fa-user"></i>NGO Details</a></li>
-                <!-- <li><a href="#donation-history"><i class="fa-solid fa-pen-to-square"></i> Reports</a> -->
                 </li>
-                <li><a href="ngo-dashboard.php#saved-items"><i class="fas fa-bookmark"></i> Collected Items</a></li>
+                <li><a href="ngoDashboard-collected-items.php"><i class="fas fa-bookmark"></i> Collected Items</a></li>
+                <li><a href="ngo-cart.php"><i class="fas fa-bookmark"></i> Saved Items</a></li>
                 <li><a href="ngo-dashboard.php#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer
                         Status</a>
                 </li>

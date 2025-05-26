@@ -161,7 +161,8 @@
                 <li><a href="#personal-details"><i class="fas fa-user"></i>NGO Details</a></li>
                 <!-- <li><a href="#donation-history"><i class="fa-solid fa-pen-to-square"></i> Reports</a> -->
                 </li>
-                <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Collected Items</a></li>
+                <li><a href="#collected-items"><i class="fas fa-bookmark"></i> Collected Items</a></li>
+                <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Saved Items</a></li>
                 <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
                 <li><a href="#settings"><i class="fas fa-cog"></i> Settings & Security</a></li>
                 <li><a href="#feedback"><i class="fas fa-star"></i> Feedback & Rating</a></li>
@@ -196,10 +197,16 @@
                 <button class="btn"><a href="ngoDashboard-reports.php">View History</a></button>
             </div> -->
 
-            <div class="card" id="saved-items">
+            <div class="card" id="collected-items">
                 <h3>Collected Items</h3>
                 <p>View your collected items</p>
                 <button class="btn"><a href="ngoDashboard-collected-items.php">View collected Items</a></button>
+            </div>
+
+            <div class="card" id="saved-items">
+                <h3>Saved Items</h3>
+                <p>View your saved items in cart</p>
+                <button class="btn"><a href="ngo-cart.php">View Saved Items</a></button>
             </div>
 
             <div class="card" id="volunteer-status">
@@ -211,13 +218,13 @@
             <div class="card" id="settings">
                 <h3>Settings & Security</h3>
                 <p>Change your password, account preferences, or delete your account.</p>
-                <button class="btn"><a href="ngoDashboard-volunteer.php">Go to Settings</a></button>
+                <button class="btn"><a href="ngo-settings.php">Go to Settings</a></button>
             </div>
 
             <div class="card" id="feedback">
                 <h3>Feedback & Rating</h3>
                 <p>Share your feedback or rate our platform.</p>
-                <button class="btn"><a href="ngoDashboard-volunteer.php">Submit Feedback</a></button>
+                <button class="btn"><a href="ngo-feedback.php">Submit Feedback</a></button>
             </div>
 
 
