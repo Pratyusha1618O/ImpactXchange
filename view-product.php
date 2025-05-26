@@ -5,9 +5,59 @@ include("./server/config.php");
 if (isset($_SESSION['email'])) {
     include("user_logged_in_nav.php");
     $email = $_SESSION['email'];
+
+    if (isset($_POST['add_to_cart'])) {
+        if (isset($email)) {
+            $product_id = $_POST['product_id'];
+
+            $uid = "SELECT user_id FROM user where user_email = '$email' ";
+            $query = mysqli_query($dbcon, $uid);
+            $row = mysqli_fetch_array($query);
+            $user_id = $row['user_id'];
+
+            $cartSQL = "INSERT INTO cart (user_id, product_id) VALUES('$user_id', '$product_id')";
+            $cart = mysqli_query($dbcon, $cartSQL);
+
+            // header("Location: userDashboard-saved-items.php");
+            // exit();
+        } else {
+            echo "<script>
+        alert('User not found. Please register first.');
+        window.location.href = 'user-registration.php';
+    </script>";
+            exit();
+        }
+
+
+    }
 } else if (isset($_SESSION["ngo-email"])) {
     include("ngo_loggedin_nav.php");
     $email = $_SESSION['ngo-email'];
+
+    if (isset($_POST['add_to_cart'])) {
+        if (isset($email)) {
+            $product_id = $_POST['product_id'];
+
+            $uid = "SELECT ngo_id FROM ngo where ngo_email = '$email' ";
+            $query = mysqli_query($dbcon, $uid);
+            $row = mysqli_fetch_array($query);
+            $ngo_id = $row['ngo_id'];
+
+            $cartSQL = "INSERT INTO ngo_cart (ngo_id, product_id) VALUES('$ngo_id', '$product_id')";
+            $cart = mysqli_query($dbcon, $cartSQL);
+
+            // header("Location: ngo-cart.php");
+            // exit();
+        } else {
+            echo "<script>
+        alert('ngo not found. Please register first.');
+        window.location.href = 'user-registration.php';
+    </script>";
+            exit();
+        }
+
+
+    }
 } else if (isset($_SESSION["admin-email"])) {
     include("admin_loggedin_nav.php");
     $email = $_SESSION['admin-email'];
@@ -18,31 +68,31 @@ if (isset($_SESSION['email'])) {
 $sql = "SELECT * FROM product WHERE admin_status = 'approved'";
 $result = mysqli_query($dbcon, $sql);
 
-if (isset($_POST['add_to_cart'])) {
-    if (isset($email)) {
-        $product_id = $_POST['product_id'];
+// if (isset($_POST['add_to_cart'])) {
+//     if (isset($email)) {
+//         $product_id = $_POST['product_id'];
 
-        $uid = "SELECT user_id FROM user where user_email = '$email' ";
-        $query = mysqli_query($dbcon, $uid);
-        $row = mysqli_fetch_array($query);
-        $user_id = $row['user_id'];
+//         $uid = "SELECT user_id FROM user where user_email = '$email' ";
+//         $query = mysqli_query($dbcon, $uid);
+//         $row = mysqli_fetch_array($query);
+//         $user_id = $row['user_id'];
 
-        $cartSQL = "INSERT INTO cart (user_id, product_id) VALUES('$user_id', '$product_id')";
-        $cart = mysqli_query($dbcon, $cartSQL);
+//         $cartSQL = "INSERT INTO cart (user_id, product_id) VALUES('$user_id', '$product_id')";
+//         $cart = mysqli_query($dbcon, $cartSQL);
 
-        header("Location: userDashboard-saved-items.php");
-        exit();
-    }
-    else {
-    echo "<script>
-        alert('User not found. Please register first.');
-        window.location.href = 'user-registration.php';
-    </script>";
-    exit();
-    }
+//         header("Location: userDashboard-saved-items.php");
+//         exit();
+//     }
+//     else {
+//     echo "<script>
+//         alert('User not found. Please register first.');
+//         window.location.href = 'user-registration.php';
+//     </script>";
+//     exit();
+//     }
 
 
-}
+// }
 
 
 ?>

@@ -67,7 +67,8 @@ if (isset($_POST["submit"])) {
         $markSold = "UPDATE product SET status='sold' WHERE product_id = '$product_id'";
         mysqli_query($dbcon, $markSold);
         // then remove from cart only
-        mysqli_query($dbcon, "DELETE FROM cart WHERE product_id = '$product_id'");
+        // mysqli_query($dbcon, "DELETE FROM cart WHERE product_id = '$product_id'");
+        // mysqli_query($dbcon, "DELETE FROM ngo_cart WHERE product_id = '$product_id'");
     } else {
         echo "Error: " . mysqli_error($dbcon);
     }
