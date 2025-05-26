@@ -185,6 +185,7 @@ if (isset($_POST['delete'])) {
                             <img src="product_images/<?php echo $row['product_img']; ?>?>" alt="Product Image" width="300">
                         </div>
                         <div class="item-details">
+                            <p style="text-align: center; color:  #37a8fe;">Status: <?php echo htmlspecialchars($row['status']); ?></p>
                             <h3>Product: <?php echo htmlspecialchars($row['product_name']); ?></h3>
                             <p>Category: <?php echo htmlspecialchars($row['product_type']); ?></p>
                             <p class="item-price">
