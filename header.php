@@ -167,6 +167,7 @@ include("./server/config.php");
   <nav class="header">
     <div class="nav-left"><a href="index.php" style="text-decoration: none">
         <p style="color: #07145f">Impact<span style="color: #ff2d6c;">Xchange</span></p>
+         <!-- <img src="./assets/logo.png" alt="" width="200"> -->
       </a>
     </div>
 

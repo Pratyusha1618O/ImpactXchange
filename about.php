@@ -142,6 +142,7 @@ else if(isset($_SESSION["admin-email"])){
             padding: 20px;
             text-align: center;
             max-width: 250px;
+            width: 40vw;
         }
 
         .team-member img {
@@ -165,13 +166,7 @@ else if(isset($_SESSION["admin-email"])){
 </head>
 
 <body>
-    <!-- HERO SECTION -->
-    <!-- <div class="hero-section">
-        <div>
-            <h1>About ImpactXchange</h1>
-            <p>Connecting resources with those who need them most.</p>
-        </div>
-    </div> -->
+
 
     <!-- ABOUT SECTION -->
     <div class="about-section">
@@ -200,9 +195,6 @@ else if(isset($_SESSION["admin-email"])){
                     <li>Support for remote and underserved communities.</li>
                 </ul>
             </div>
-            <!-- <div class="about-image">
-                <img src="./assets/about_us.jpg" alt="About Us">
-            </div> -->
         </div>
     </div>
 
@@ -212,19 +204,16 @@ else if(isset($_SESSION["admin-email"])){
         <h1>Meet Our Team</h1>
         <div class="team-members">
             <div class="team-member">
-                <img src="./assets/team_member1.jpg" alt="Team Member 1">
-                <h3>abc </h3>
+                <h4>Samit Kumar Desmukh</h4>
+                <h4>Pratyusha Bhandary</h4>
                 <p>Founder & CEO</p>
             </div>
             <div class="team-member">
-                <img src="./assets/team_member2.jpg" alt="Team Member 2">
-                <h3>xyz
-                </h3>
+                <h4>Jyoti Kumari Shaw</h4>
                 <p>Operations Manager</p>
             </div>
             <div class="team-member">
-                <img src="./assets/team_member3.jpg" alt="Team Member 3">
-                <h3>pqr</h3>
+                <h4>Sayan Porey</h4>
                 <p>Community Outreach</p>
             </div>
         </div>

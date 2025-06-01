@@ -36,7 +36,6 @@ if (isset($_GET['product_id'])) {
     $result = mysqli_query($dbcon, $sql);
     $product = mysqli_fetch_assoc($result);
 
-    // Display the product details below
 } else {
     echo "Product not found.";
 }
@@ -45,12 +44,6 @@ if (isset($_GET['product_id'])) {
 if (isset($_POST["submit"])) {
     $today_date = date("Y-m-d");
     $product_id = $_POST['product_id'];
-
-    // echo "DEBUG VALUES:<br>";
-    // echo "User ID: " . $user_id . "<br>";
-    // echo "NGO ID: " . $ngo_id . "<br>";
-    // echo "Product ID: " . $product_id . "<br>";
-    // echo "Date: " . $today_date . "<br>";
 
     $sql = "INSERT IGNORE INTO purchase (user_id, product_id, purchase_date, ngo_id) VALUES (
         " . ($user_id === "NULL" ? "NULL" : "'$user_id'") . ",
@@ -66,9 +59,6 @@ if (isset($_POST["submit"])) {
         // After purchase insert succeeds:
         $markSold = "UPDATE product SET status='sold' WHERE product_id = '$product_id'";
         mysqli_query($dbcon, $markSold);
-        // then remove from cart only
-        // mysqli_query($dbcon, "DELETE FROM cart WHERE product_id = '$product_id'");
-        // mysqli_query($dbcon, "DELETE FROM ngo_cart WHERE product_id = '$product_id'");
     } else {
         echo "Error: " . mysqli_error($dbcon);
     }
