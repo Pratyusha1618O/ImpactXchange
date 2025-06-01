@@ -269,10 +269,6 @@ if (isset($_POST['delete'])) {
     <div class="sidebar">
         <h2><i class="fas fa-donate"></i> Welcome <?php echo "{$row['admin_name']}" ?></h2>
         <ul>
-            <!-- <li><a href="#"><i class="fa-solid fa-user"></i>
-                    <?php //echo "{$row['admin_name']}" ?>
-                </a>
-            </li> -->
             <li><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li><a href="#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
             <li><a href="adminDashboard-pending.php"><i class="fa-regular fa-clock"></i> Pending Approvals</a></li>
@@ -341,7 +337,6 @@ if (isset($_POST['delete'])) {
                                     <td>{$row1['product_name']}<input type="hidden" name="pid" value="{$row1['product_id']}"></td>
                                     <td>{$row1['donation_date']}</td>
                                     <td>{$row1['product_price']}</td>
-                                    <!-- <td><img src="./product_images/{$row1['product_img']}" alt="Product Image" width="200"></td> -->
                                     <td>
                                         <a href="javascript:void(0)" onclick="showImageModal('{$row1['product_img'] }')" style="margin-left:10px; text-decoration:none; color: black"><i class="fa-solid fa-file-image"></i></a>
                                     </td>
@@ -362,36 +357,7 @@ if (isset($_POST['delete'])) {
                     <?php echo $msg; ?>
                 </h2>
             <?php } ?>
-            <!-- <table>
-                    <thead>
-                        <tr>
-                            <th>Donor</th>
-                            <th>Amount</th>
-                            <th>Date</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Rs. 100</td>
-                            <td>2023-10-01</td>
-                            <td><i class="fas fa-check-circle" style="color: green;"></i> Completed</td>
-                        </tr>
-                        <tr>
-                            <td>Jane Smith</td>
-                            <td>Rs. 50</td>
-                            <td>2023-09-30</td>
-                            <td><i class="fas fa-clock" style="color: orange;"></i> Pending</td>
-                        </tr>
-                        <tr>
-                            <td>Michael Brown</td>
-                            <td>Rs. 200</td>
-                            <td>2023-09-29</td>
-                            <td><i class="fas fa-check-circle" style="color: green;"></i> Completed</td>
-                        </tr>
-                    </tbody>
-                </table> -->
+           
         </div>
     </div>
     </div>

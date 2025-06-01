@@ -8,7 +8,6 @@ if (!isset($_SESSION["admin-email"])) {
     exit();
 }
 
-
 $email = $_SESSION['admin-email'];
 $sql = "SELECT * FROM admin WHERE admin_email = '$email' ";
 $result = mysqli_query($dbcon, $sql);
@@ -16,7 +15,6 @@ $result = mysqli_query($dbcon, $sql);
 if ($result->num_rows > 0) {
     $row = mysqli_fetch_assoc($result);
 }
-
 $sql_product = "SELECT 
                     *, 
                     TIME(donation_date) AS donation_time 
@@ -29,61 +27,21 @@ if (isset($_POST['delete'])) {
     $userid = $_POST["userid"];
     $pid = $_POST["pid"];
 
-    // Get donor's email
-    // $user_query = "SELECT user_email FROM user WHERE user_id = '$userid'";
-    // $user_result = mysqli_query($dbcon, $user_query);
-    // $user_row = mysqli_fetch_assoc($user_result);
-    // $donor_email = $user_row['user_email'];
-
-
     $dlt_sql = "DELETE FROM product WHERE user_id = '$userid' AND product_id = '$pid' ";
     mysqli_query($dbcon, $dlt_sql);
 
     echo "<script>window.location.href = window.location.href;</script>";
     exit();
-    // if (mysqli_query($dbcon, $dlt_sql)) {
-    //     // Send email
-    //     $subject = "Your Donation Has Been Rejected!";
-    //     $message = "Dear Donor,\n\nSorry for our action. Your donated item may be inappropriate or may violet our terms and conditions.\n\nBest regards,\nImpactXchange Team";
-    //     $headers = "From: team@impactXchange.com";
-
-    //     mail($donor_email, $subject, $message, $headers);
-
-    // } else {
-    //     echo "Error updating status: " . mysqli_error($dbcon);
-    // }
-
-
 }
 
 if (isset($_POST['approve'])) {
     $userid = $_POST["userid"];
     $pid = $_POST["pid"];
-
-    // Get donor's email
-    // $user_query = "SELECT user_email FROM user WHERE user_id = '$userid'";
-    // $user_result = mysqli_query($dbcon, $user_query);
-    // $user_row = mysqli_fetch_assoc($user_result);
-    // $donor_email = $user_row['user_email'];
-
     $approve_sql = "UPDATE product SET admin_status = 'approved' WHERE user_id = '$userid' AND product_id  = '$pid' ";
     mysqli_query($dbcon, $approve_sql);
 
     echo "<script>window.location.href = window.location.href;</script>";
     exit();
-
-    // if (mysqli_query($dbcon, $approve_sql)) {
-    //     // Send email
-    //     $subject = "Your Donation Has Been Approved!";
-    //     $message = "Dear Donor,\n\nThank you for your contribution. Your donated item has been approved by the admin and is now visible to those in need.\n\nBest regards,\nImpactXchange Team";
-    //     $headers = "From: team@impactXchange.com";
-
-    //     mail($donor_email, $subject, $message, $headers);
-
-    // } else {
-    //     echo "Error updating status: " . mysqli_error($dbcon);
-    // }
-
 }
 
 ?>
@@ -282,10 +240,6 @@ if (isset($_POST['approve'])) {
         <div class="sidebar">
             <h2><i class="fas fa-donate"></i> Welcome <?php echo "{$row['admin_name']}" ?></h2>
             <ul>
-                <!-- <li><a href="#"><i class="fa-solid fa-user"></i>
-                    <?php //echo "{$row['admin_name']}" ?>
-                </a>
-            </li> -->
                 <li><a href="admin-dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="admin-dashboard.php#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
                 <li><a href="#"><i class="fa-regular fa-clock"></i> Pending Approvals</a></li>
@@ -307,6 +261,7 @@ if (isset($_POST['approve'])) {
                         <tr>
                             <th>Donor</th>
                             <th>Product</th>
+                            <th>Product Details</th>
                             <th>Date</th>
                             <th>Price</th>
                             <th>Image</th>
@@ -318,9 +273,9 @@ if (isset($_POST['approve'])) {
                                 <form method="POST">
                                     <td>{$row1['user_name']}<input type="hidden" name="userid" value="{$row1['user_id']}"></td>
                                     <td>{$row1['product_name']}<input type="hidden" name="pid" value="{$row1['product_id']}"></td>
+                                    <td>{$row1['product_details']}<input type="hidden" name="pid" value="{$row1['product_id']}"></td>
                                     <td>{$row1['donation_date']}</td>
                                     <td>{$row1['product_price']}</td>
-                                    <!-- <td><img src="./product_images/{$row1['product_img']}" alt="Product Image" width="200"></td> -->
                                     <td>
                                         <a href="javascript:void(0)" onclick="showImageModal('{$row1['product_img'] }')" style="margin-left:10px; text-decoration:none; color: black"><i class="fa-solid fa-file-image"></i></a>
                                     </td>
