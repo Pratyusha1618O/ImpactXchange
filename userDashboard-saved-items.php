@@ -209,40 +209,7 @@ if (isset($_POST['delete'])) {
                 $msg = "No items saved yet.";
             }
             ?>
-            <!-- <div class="item-card">
-                <div class="item-image">
-                    <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/400822043/IO/KP/QM/59907886/electronics-fundamentals-and-applications-15th-ed-book-by-d-chattopadhyay-500x500.jpeg"
-                        alt="Product Image">
-                </div>
-                <div class="item-details">
-                    <h3>Product: Book</h3>
-                    <p>Category: Education</p>
-                    <p class="item-price">₹250</p>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="" alt="Product Image">
-                </div>
-                <div class="item-details">
-                    <h3>Product: Old Clothes</h3>
-                    <p>Category: Clothes</p>
-                    <p class="item-price">Free</p>
-                </div>
-            </div>
-
-            <div class="item-card">
-                <div class="item-image">
-                    <img src="https://via.placeholder.com/300x180" alt="Product Image">
-                </div>
-                <div class="item-details">
-                    <h3>Product: Used School Books</h3>
-                    <p>Category: Education</p>
-                    <p class="item-price">₹50</p>
-                </div>
-            </div> -->
-
+        
 
         </div>
 

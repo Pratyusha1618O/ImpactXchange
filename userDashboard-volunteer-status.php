@@ -15,12 +15,7 @@ include("user_logged_in_nav.php");
     <title>Volunteer Status</title>
     <style>
         body {
-            /* background: linear-gradient(-45deg, #F97316, #fff237, #f9f8f8); */
-            color: #fff;
-            /* background: url(./assets/volunteer.png);
-            background-repeat: no-repeat;
-            background-size: cover; */
-            
+            color: #fff;      
         }
 
         .volunteer-container{

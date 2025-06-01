@@ -232,6 +232,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </li>
             <li><a href="#saved-items"><i class="fas fa-bookmark"></i> Saved Items</a></li>
             <li><a href="#volunteer-status"><i class="fas fa-hands-helping"></i> Volunteer Status</a></li>
+            <li><a href="userDashboard-ngo.php"><i class="fa-solid fa-users-viewfinder"></i> Connect wit NGOs</a></li>
             <li><a href="user-settings.php"><i class="fas fa-cog"></i> Settings & Security</a></li>
             <li><a href="feedback.php"><i class="fas fa-star"></i> Feedback & Rating</a></li>
             <li><a href="user-logout.php"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
