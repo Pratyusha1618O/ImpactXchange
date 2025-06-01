@@ -1,26 +1,26 @@
 <?php
- session_start();
- include("admin_loggedin_nav.php");
- include("./server/config.php");
+session_start();
+include("admin_loggedin_nav.php");
+include("./server/config.php");
 
- if(!isset($_SESSION["admin-email"])){
-     header("Location: login.php");
-     exit();
- }
- $email = $_SESSION['admin-email'];
- $sql = "SELECT * FROM admin WHERE admin_email = '$email' ";
- $result = mysqli_query($dbcon, $sql);
+if (!isset($_SESSION["admin-email"])) {
+    header("Location: login.php");
+    exit();
+}
+$email = $_SESSION['admin-email'];
+$sql = "SELECT * FROM admin WHERE admin_email = '$email' ";
+$result = mysqli_query($dbcon, $sql);
 
- if($result->num_rows > 0)
- {
-     $row = mysqli_fetch_assoc($result);
- }
+if ($result->num_rows > 0) {
+    $row = mysqli_fetch_assoc($result);
+}
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -162,6 +162,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="dashboard">
         <!-- Sidebar -->
@@ -174,6 +175,7 @@
             </li> -->
                 <li><a href="admin-dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="admin-dashboard.php#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
+                <li><a href="adminDashboard-pending.php"><i class="fa-regular fa-clock"></i> Pending Approvals</a></li>
                 <li><a href="admin-dashboard.php#campaign"><i class="fas fa-bullhorn"></i> Campaigns</a></li>
                 <li><a href="adminDashboard-report.php"><i class="fas fa-chart-line"></i> Reports</a></li>
                 <li><a href="adminDashboard-users.php"><i class="fas fa-users"></i>Users</a></li>
@@ -211,15 +213,18 @@
                 <form>
                     <div class="form-group">
                         <label for="currentPassword">Current Password</label>
-                        <input type="password" id="currentPassword" name="currentPassword" placeholder="Enter current password" required>
+                        <input type="password" id="currentPassword" name="currentPassword"
+                            placeholder="Enter current password" required>
                     </div>
                     <div class="form-group">
                         <label for="newPassword">New Password</label>
-                        <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password" required>
+                        <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password"
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password" required>
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                            placeholder="Confirm new password" required>
                     </div>
                     <button type="submit" class="btn">Update Password</button>
                 </form>
@@ -243,4 +248,5 @@
         </div>
     </div>
 </body>
+
 </html>
