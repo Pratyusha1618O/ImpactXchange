@@ -168,10 +168,6 @@ if ($result->num_rows > 0) {
         <div class="sidebar">
             <h2><i class="fas fa-donate"></i> Welcome <?php echo "{$row['admin_name']}" ?></h2>
             <ul>
-                <!-- <li><a href="#"><i class="fa-solid fa-user"></i>
-                    <?php //echo "{$row['admin_name']}" ?>
-                </a>
-            </li> -->
                 <li><a href="admin-dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="admin-dashboard.php#donation"><i class="fas fa-hand-holding-usd"></i> Donations</a></li>
                 <li><a href="adminDashboard-pending.php"><i class="fa-regular fa-clock"></i> Pending Approvals</a></li>
