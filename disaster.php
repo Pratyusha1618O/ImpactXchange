@@ -143,7 +143,7 @@ if (isset($_SESSION['email'])) {
     <p>Learn how we made a difference during natural disasters</p>
   </div>
 
-  <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 2rem;">
+  <p style="text-align: center; font-style: italic; color: #666; margin-bottom: 2rem;" >
     <strong>Note:</strong> A complete disaster management system is under development. This section currently highlights
     past relief efforts.
   </p>
@@ -323,10 +323,7 @@ if (isset($_SESSION['email'])) {
         </div>
       </div>
 
-
-
       <button class="load-more-btn" id="toggleBtn">Load More ⏬</i></button>
-
 
     </div>
   </div>
